@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+  has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
+
+  validates :name, presence: true
 end

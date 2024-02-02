@@ -50,6 +50,9 @@ gem 'bootsnap', require: false
 # Used for authentication and authorization
 gem 'devise', '~> 4.9', '>= 4.9.3'
 
+# local
+gem 'i18n', '~> 1.14', '>= 1.14.1'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
@@ -72,4 +75,4 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem "importmap-rails", "~> 2.0"
+gem 'importmap-rails', '~> 2.0'
