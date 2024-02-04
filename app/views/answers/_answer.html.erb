@@ -1,0 +1,20 @@
+<article class="card mt-3" style="border-color: #6610f2">
+  <div class="card-body">
+    <section>
+      <p class="my-2">
+        <%= answer.body %>
+      </p>
+    </section>
+
+    <%= link_to 'Show', answer_path(answer),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;"%>
+    <%= link_to 'Edit', edit_answer_path(answer),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;"%>
+    <%= link_to 'Delete', answer_path(answer),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;",
+                data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+  </div>
+</article>

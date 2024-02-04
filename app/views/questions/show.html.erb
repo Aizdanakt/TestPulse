@@ -1,0 +1,19 @@
+<%= link_to 'Create answer', new_question_answer_path(@question) %>
+<div style="margin-bottom: 30px">
+  <article class="card mt-3" style="border-color: #6610f2">
+    <div class="card-body">
+      <p class="my-2">
+      <h3><%= @question.test.title %>Вопрос</h3>
+      </p>
+
+      <p class="my-10">
+      <h5><%= @question.body %></h5>
+      </p>
+    </div>
+  </article>
+</div>
+
+<section>
+  <h2>Ответы</h2>
+  <%= render @question.answers %>
+</section>

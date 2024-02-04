@@ -1,0 +1,19 @@
+<article class="card mt-3">
+  <div class="card-body">
+    <section>
+      <p class="my-2">
+        Title: <%= test.title %>
+      </p>
+      <p class="my-2">
+        Level: <%= test.level %>
+      </p>
+      <p class="my-2">
+        Number of questions: <%= test.questions.count %>
+      </p>
+    </section>
+
+    <%= link_to 'Show', test_path(test), class: 'btn btn-primary' %>
+    <%= link_to 'Update', edit_test_path(test), class: 'btn btn-warning' %>
+    <%= link_to "Delete", test_path(test), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+  </div>
+</article>
