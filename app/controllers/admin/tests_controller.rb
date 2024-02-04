@@ -1,4 +1,4 @@
-class TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
   before_action :find_test, only: %i[show edit update destroy]
 
   def index
@@ -17,13 +17,13 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path(@test)
+    redirect_to admin_tests_path(@test)
   end
 
   def create
     @test = current_user.created_tests.build(test_params)
     if @test.save
-      redirect_to tests_path
+      redirect_to admin_tests_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to tests_path(@test)
+      redirect_to admin_tests_path(@test)
     else
       render :edit
     end

@@ -12,8 +12,8 @@
       </p>
     </section>
 
-    <%= link_to 'Show', test_path(test), class: 'btn btn-primary' %>
-    <%= link_to 'Update', edit_test_path(test), class: 'btn btn-warning' %>
-    <%= link_to "Delete", test_path(test), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <%= link_to 'Show', admin_test_path(test), class: 'btn btn-primary' %>
+    <%= link_to 'Update', edit_admin_test_path(test), class: 'btn btn-warning' %>
+    <%= link_to "Delete", admin_test_path(test), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   </div>
 </article>

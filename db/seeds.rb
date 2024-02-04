@@ -7,13 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
 basic_category = Category.create!(title: 'basic')
 intermediate_category = Category.create!(title: 'intermediate')
 advanced_category = Category.create!(title: 'advanced')
 
 john = User.create!(name: 'qwerty', password: 'qwerty')
-ivan = User.create!(name: 'qwerty1', password: 'qwerty1')
-hans = User.create!(name: 'qwerty2', password: 'qwerty2')
+ivan = User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
+hans = User.create!(name: 'teacher', password: 'teacher', type: 'Teacher')
 
 basic_test = Test.create!(title: 'Ruby gems', level: 1, category: basic_category, author: john)
 intermediate_test = Test.create!(title: 'OOP', level: 2, category: intermediate_category, author: ivan)

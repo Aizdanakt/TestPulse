@@ -5,12 +5,18 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  root 'tests#index'
+  root 'user/tests#index'
 
-  resources :tests do
+  namespace :admin do
+    resources :tests do
 
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true, except: :index
+      resources :questions, shallow: true, except: :index do
+        resources :answers, shallow: true, except: :index
+      end
     end
+  end
+
+  namespace :user do
+    resources :tests, only: :index
   end
 end
