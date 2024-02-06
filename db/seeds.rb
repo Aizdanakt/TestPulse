@@ -12,13 +12,18 @@ basic_category = Category.create!(title: 'basic')
 intermediate_category = Category.create!(title: 'intermediate')
 advanced_category = Category.create!(title: 'advanced')
 
-john = User.create!(name: 'qwerty', password: 'qwerty')
-ivan = User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
+User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 4)
+User.create!(name: 'qwerty1', password: 'qwerty1', group: 2424, teacher_id: 4)
+User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
 hans = User.create!(name: 'teacher', password: 'teacher', type: 'Teacher')
 
-basic_test = Test.create!(title: 'Ruby gems', level: 1, category: basic_category, author: john)
-intermediate_test = Test.create!(title: 'OOP', level: 2, category: intermediate_category, author: ivan)
-advanced_test = Test.create!(title: 'SOLID', level: 3, category: advanced_category, author: hans)
+basic = Task.create!(title: 'basic', teacher: hans)
+intermediate = Task.create!(title: 'intermediate', teacher: hans)
+advanced = Task.create!(title: 'advanced', teacher: hans)
+
+basic_test = Test.create!(title: 'Ruby gems', level: 1, category: basic_category, author: hans, task: basic)
+intermediate_test = Test.create!(title: 'OOP', level: 2, category: intermediate_category, author: hans, task: intermediate)
+advanced_test = Test.create!(title: 'SOLID', level: 3, category: advanced_category, author: hans, task: advanced)
 
 # creating questions for basic_test
 basic_test_question_first = Question.create!(body: 'What task does Device perform?', test: basic_test)

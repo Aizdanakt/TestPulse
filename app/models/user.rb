@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :validatable
 
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
+  has_many :created_tasks, class_name: 'Task', foreign_key: 'teacher_id', dependent: :destroy
 
   validates :name, presence: true
 
