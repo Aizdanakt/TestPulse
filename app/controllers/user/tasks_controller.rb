@@ -1,9 +1,8 @@
-class Admin::TestsController < Admin::BaseController
-  before_action :find_task, only: %i[new create]
+class User::TasksController < ApplicationController
   before_action :find_test, only: %i[show edit update destroy]
 
   def index
-    @tests = Test.all
+    @tasks = Task.all
   end
 
   def show
@@ -18,14 +17,13 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_task_tests_path(@test)
+    redirect_to admin_tests_path(@test)
   end
 
   def create
     @test = current_user.created_tests.build(test_params)
-    @test.task_id = params[:task_id]
     if @test.save
-      redirect_to admin_task_path(@task)
+      redirect_to admin_tests_path
     else
       render :new
     end
@@ -33,7 +31,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_task_path(@test.task)
+      redirect_to admin_tests_path(@test)
     else
       render :edit
     end
@@ -42,14 +40,10 @@ class Admin::TestsController < Admin::BaseController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :time_limit)
+    params.require(:test).permit(:title)
   end
 
   def find_test
     @test = Test.find(params[:id])
-  end
-
-  def find_task
-    @task = Task.find(params[:task_id])
   end
 end
