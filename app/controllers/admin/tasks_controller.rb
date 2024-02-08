@@ -1,5 +1,5 @@
 class Admin::TasksController < Admin::BaseController
-  before_action :find_task, only: %i[show edit update destroy]
+  before_action :find_task, only: %i[show edit update destroy make_public make_private]
 
   def index
     @tasks = Task.all
@@ -35,6 +35,16 @@ class Admin::TasksController < Admin::BaseController
     else
       render :edit
     end
+  end
+
+  def make_public
+    @task.update(public: true)
+    redirect_to admin_tasks_path
+  end
+
+  def make_private
+    @task.update(public: false)
+    redirect_to admin_tasks_path
   end
 
   private

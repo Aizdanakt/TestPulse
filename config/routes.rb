@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :tasks do
+      patch :make_public, on: :member
+      patch :make_private, on: :member
+
       resources :tests, shallow: true, except: :index do
         resources :questions, shallow: true, except: :index do
           resources :answers, shallow: true, except: :index

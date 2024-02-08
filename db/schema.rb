@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_132641) do
 
   create_table 'tasks', force: :cascade do |t|
     t.string 'title', null: false
+    t.boolean 'public', default: false, null: false
     t.integer 'teacher_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
