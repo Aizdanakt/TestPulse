@@ -21,6 +21,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_passed_tests, only: %i[show update] do
+    get :result, on: :member
+    # get :time_left, om: :member
+  end
+
   # namespace :admin do
   #
   #   resources :tasks do
@@ -39,7 +44,9 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :tasks, only: %i[index show] do
-      resources :tests, only: :index
+      resources :tests, only: [] do
+        post :start, on: :member
+      end
     end
   end
 end
