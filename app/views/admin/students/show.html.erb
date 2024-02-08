@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Информация о студенте <%= @student.name %></h1>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID теста</th>
+      <th scope="col">Текущий вопрос</th>
+      <th scope="col">Количество правильных ответов</th>
+      <th scope="col">Дата прохождения</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @student.user_passed_tests.each do |passed_test| %>
+      <tr>
+        <td><%= passed_test.test_id %></td>
+        <td><%= passed_test.current_question_id %></td>
+        <td><%= passed_test.correct_questions %></td>
+        <td><%= passed_test.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

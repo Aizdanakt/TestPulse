@@ -12,8 +12,8 @@ basic_category = Category.create!(title: 'basic')
 intermediate_category = Category.create!(title: 'intermediate')
 advanced_category = Category.create!(title: 'advanced')
 
-User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 4)
-User.create!(name: 'qwerty1', password: 'qwerty1', group: 2424, teacher_id: 4)
+User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 3)
+User.create!(name: 'qwerty1', password: 'qwerty1', group: 2424, teacher_id: 3)
 User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
 hans = User.create!(name: 'teacher', password: 'teacher', type: 'Teacher')
 

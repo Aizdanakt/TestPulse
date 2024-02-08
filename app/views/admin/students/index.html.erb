@@ -1,0 +1,14 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Имя</th>
+      <th scope="col">Группа</th>
+      <th scope="col">ID учителя</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render partial: 'student', collection: @students %>
+    </tbody>
+  </table>
+</div>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
+    resources :students
+
     resources :tasks do
       patch :make_public, on: :member
       patch :make_private, on: :member
