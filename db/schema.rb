@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_113538) do
     t.integer 'test_id', null: false
     t.integer 'current_question_id'
     t.integer 'correct_questions', default: 0
+    t.json 'answers_data', default: {}, null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['current_question_id'], name: 'index_user_passed_tests_on_current_question_id'

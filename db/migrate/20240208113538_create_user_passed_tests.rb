@@ -6,6 +6,7 @@ class CreateUserPassedTests < ActiveRecord::Migration[7.1]
       t.references :current_question, foreign_key: { to_table: :questions }
 
       t.integer :correct_questions, default: 0
+      t.json :answers_data, null: false, default: {}
 
       t.timestamps
     end

@@ -1,4 +1,5 @@
 class UserPassedTest < ApplicationRecord
+
   SUCCESS_RATIO = 85
 
   belongs_to :user
@@ -12,19 +13,21 @@ class UserPassedTest < ApplicationRecord
   end
 
   def accept!(answer_ids)
+    self.answers_data ||= {}
+    self.answers_data[current_question.id] = answer_ids
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
-  # def success_percentage(user_passed_test)
-  #   total_answers = user_passed_test.test.questions.count
-  #   correct_answers = user_passed_test.correct_questions
-  #   ((correct_answers.to_f / total_answers) * 100).to_i
-  # end
-  #
-  # def success?(percentage)
-  #   percentage >= SUCCESS_RATIO
-  # end
+  def success_percentage(user_passed_test)
+    total_answers = user_passed_test.test.questions.count
+    correct_answers = user_passed_test.correct_questions
+    ((correct_answers.to_f / total_answers) * 100).to_i
+  end
+
+  def success?(percentage)
+    percentage >= SUCCESS_RATIO
+  end
 
   def question_number(resource)
     resource.test.questions.index(resource.current_question) + 1
