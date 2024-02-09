@@ -14,7 +14,7 @@
       <td><%= question.body %></td>
       <td>
         <% question.answers.each do |answer| %>
-          <%= question.answers.index(answer) + 1 %>. <span class='<%= 'text-success' if answer.correct%>'><%= answer.body %></span><br>
+          <%= question.answers.index(answer) + 1 %>. <span class='<%= 'text-success' if answer.correct %>'><%= answer.body %></span><br>
         <% end %>
       </td>
       <td>
