@@ -3,8 +3,13 @@ class User::TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
-    current_user.tests.push(@test)
+    time = Time.current
 
-    redirect_to user_passed_test_path(current_user.user_passed_test(@test))
+    if @test.task.end_time <= time || @test.task.start_time <= time
+      current_user.tests.push(@test)
+      redirect_to user_passed_test_path(current_user.user_passed_test(@test))
+    else
+      redirect_to user_task_path(@test)
+    end
   end
 end

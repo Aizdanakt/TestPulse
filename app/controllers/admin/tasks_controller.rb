@@ -51,7 +51,7 @@ class Admin::TasksController < Admin::BaseController
   private
 
   def task_params
-    params.require(:task).permit(:title)
+    params.require(:task).permit(:title, :start_time, :end_time)
   end
 
   def find_task
