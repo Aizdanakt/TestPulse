@@ -39,4 +39,17 @@ class User < ApplicationRecord
   def user_tests_by_level(level)
     tests.where(level: level)
   end
+
+  def user_uniq_tasks
+    tests = Test.joins(:user_passed_tests).where(user_passed_tests: { user_id: id }).distinct
+    task_ids = tests.pluck(:task_id).uniq
+
+
+    Task.where(id: task_ids)
+  end
+
+  def user_passed_tests_by_task(task)
+    user_passed_tests.where(test_id: task.tests)
+  end
+
 end

@@ -7,6 +7,7 @@ class Admin::TasksController < Admin::BaseController
 
   def show
     @tests = @task.tests
+    puts @tests.inspect
   end
 
   def edit; end

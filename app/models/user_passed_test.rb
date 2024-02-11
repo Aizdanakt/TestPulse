@@ -54,4 +54,6 @@ class UserPassedTest < ApplicationRecord
                               next_question
                             end
   end
+
+
 end
