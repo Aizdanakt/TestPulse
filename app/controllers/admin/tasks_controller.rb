@@ -1,13 +1,13 @@
 class Admin::TasksController < Admin::BaseController
   before_action :find_task, only: %i[show edit update destroy make_public make_private]
+  before_action :extract_tasks, only: %i[index archive]
 
   def index
-    @tasks = Task.all
+    @tasks = @tasks.where('end_time >= ?', @current_time)
   end
 
   def show
     @tests = @task.tests
-    puts @tests.inspect
   end
 
   def edit; end
@@ -48,6 +48,10 @@ class Admin::TasksController < Admin::BaseController
     redirect_to admin_tasks_path
   end
 
+  def archive
+    @tasks = @tasks.where('end_time <= ?', @current_time)
+  end
+
   private
 
   def task_params
@@ -56,5 +60,10 @@ class Admin::TasksController < Admin::BaseController
 
   def find_task
     @task = Task.find(params[:id])
+  end
+
+  def extract_tasks
+    @current_time = Time.current
+    @tasks = Task.all
   end
 end
