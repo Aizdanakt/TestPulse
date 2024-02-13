@@ -9,7 +9,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
+    resources :students, only: %i[index show]
+
     resources :tasks do
+      patch :make_public, on: :member
+      patch :make_private, on: :member
+
+      get :archive, on: :collection
+
       resources :tests, shallow: true, except: :index do
         resources :questions, shallow: true, except: :index do
           resources :answers, shallow: true, except: :index
@@ -18,25 +25,18 @@ Rails.application.routes.draw do
     end
   end
 
-  # namespace :admin do
-  #
-  #   resources :tasks do
-  #     resources :tests, shallow: true, except: :index
-  #   end
-  #
-  #   resources :tests, shallow: true do
-  #     resources :questions, shallow: true, except: :index
-  #   end
-  #
-  #   resources :questions do
-  #     resources :answers, shallow: true, except: :index
-  #   end
-  # end
-
+  resources :user_passed_tests, only: %i[show update] do
+    get :result, on: :member
+    # get :time_left, om: :member
+  end
 
   namespace :user do
     resources :tasks, only: %i[index show] do
-      resources :tests, only: :index
+      get :archive, on: :collection
+
+      resources :tests, only: [] do
+        post :start, on: :member
+      end
     end
   end
 end

@@ -1,9 +1,8 @@
 <tr>
   <td><%= test.title %></td>
   <td><%= test.level %></td>
-  <td><%= test.questions.count %></td>
   <td>
-    <%= button_to "Начать", '/',
+    <%= button_to "Начать", start_user_task_test_path(test.task, test),
                   class: 'btn text-white',
                   style: "background-color: #6610f2;"%>
   </td>

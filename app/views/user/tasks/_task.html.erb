@@ -1,4 +1,17 @@
-<tr>
-  <td><%= task.title %></td>
-  <td><%= link_to 'Show', user_task_tests_path(task), class: 'btn btn-primary' %></td>
-</tr>
+<article class="card mt-3 form-control-lg" style="border-color: #8e00ba">
+  <div class="card-body">
+    <section>
+      <p class="my-2">
+        <%= task.title %>
+      </p>
+      <p class="my-2">
+        <%= task.start_time %>
+      </p>
+      <p class="my-2">
+        <%= task.end_time %>
+      </p>
+    </section>
+
+    <%= link_to 'Show', user_task_path(task), class: 'btn btn-primary' %>
+  </div>
+</article>

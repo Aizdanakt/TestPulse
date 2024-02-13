@@ -1,2 +1,7 @@
 <h2>Tasks</h2>
 <%= render @tasks %>
+<div class="position-fixed" style="top: 50%; right: 20px;">
+  <%= link_to archive_admin_tasks_path, class: 'btn btn-secondary' do %>
+    <i class="bi bi-arrow-right"></i>
+  <% end %>
+</div>

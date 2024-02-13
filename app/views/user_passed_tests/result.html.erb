@@ -1,0 +1,30 @@
+<h1><%= t('.header', title: @user_passed_test.test.title) %></h1>
+<%= views_result(@user_passed_test) %>
+<table class="table">
+  <thead>
+  <tr>
+    <th><%= t(".question_header") %></th>
+    <th><%= t(".answers_header") %></th>
+    <th><%= t(".correctness_header") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @user_passed_test.test.questions.each_with_index do |question, index| %>
+    <tr>
+      <td><%= question.body %></td>
+      <td>
+        <% question.answers.each do |answer| %>
+          <%= question.answers.index(answer) + 1 %>. <span class='<%= 'text-success' if answer.correct %>'><%= answer.body %></span><br>
+        <% end %>
+      </td>
+      <td>
+        <% if @user_passed_test.correct_questions >= index + 1 %>
+          <span class="text-success"><%= t('.yes') %></span>
+        <% else %>
+          <span class="text-danger"><%= t('.no') %></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
