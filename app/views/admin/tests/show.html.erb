@@ -3,8 +3,14 @@
   <article class="card mt-3">
     <section>
       <p class="my-10">
-        Title:  <%= @test.title %>  <p>Level: <%= @test.level %></p>
+        Title:  <%= @test.title %>
+      <p>
+        Level: <%= @test.level %>
       </p>
+      <p>
+        <img src="<%= @test.image_url %>">
+      </p>
+
     </section>
   </article>
 </div>

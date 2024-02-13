@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   has_many :user_passed_tests, dependent: :destroy
   has_many :tests, through: :user_passed_tests
-  has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
   has_many :created_tasks, class_name: 'Task', foreign_key: 'teacher_id', dependent: :destroy
 
   validates :name, presence: true

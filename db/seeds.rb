@@ -8,22 +8,20 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-basic_category = Category.create!(title: 'basic')
-intermediate_category = Category.create!(title: 'intermediate')
-advanced_category = Category.create!(title: 'advanced')
-
 User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 3)
 User.create!(name: 'qwerty1', password: 'qwerty1', group: 2424, teacher_id: 3)
 User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
 hans = User.create!(name: 'teacher', password: 'teacher', type: 'Teacher')
-end_time = Time.parse('2024-12-31 23:59:59')
-basic = Task.create!(title: 'basic', teacher: hans, start_time: Time.current, end_time: end_time)
-intermediate = Task.create!(title: 'intermediate', teacher: hans, start_time: Time.current, end_time: end_time)
-advanced = Task.create!(title: 'advanced', teacher: hans, start_time: Time.current, end_time: end_time)
 
-basic_test = Test.create!(title: 'Ruby gems', level: 1, category: basic_category, author: hans, task: basic)
-intermediate_test = Test.create!(title: 'OOP', level: 2, category: intermediate_category, author: hans, task: intermediate)
-advanced_test = Test.create!(title: 'SOLID', level: 3, category: advanced_category, author: hans, task: advanced)
+end_time = Time.parse('2024-12-31 23:59:59')
+
+basic = Task.create!(title: 'basic', teacher: hans, description: 'test', start_time: Time.current, end_time: end_time)
+intermediate = Task.create!(title: 'intermediate', teacher: hans, description: 'test', start_time: Time.current, end_time: end_time)
+advanced = Task.create!(title: 'advanced', description: 'test', teacher: hans, start_time: Time.current, end_time: end_time)
+
+basic_test = Test.create!(title: 'Ruby gems', level: 1, task: basic)
+intermediate_test = Test.create!(title: 'OOP', level: 2, task: intermediate)
+advanced_test = Test.create!(title: 'SOLID', level: 3, task: advanced)
 
 # creating questions for basic_test
 basic_test_question_first = Question.create!(body: 'What task does Device perform?', test: basic_test)

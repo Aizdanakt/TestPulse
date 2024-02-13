@@ -1,0 +1,2 @@
+class UserPassedEssay < ApplicationRecord
+end

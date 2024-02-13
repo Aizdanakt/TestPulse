@@ -1,8 +1,8 @@
-class CreateTests < ActiveRecord::Migration[7.1]
+class CreateEssays < ActiveRecord::Migration[7.1]
   def change
-    create_table :tests do |t|
+    create_table :essays do |t|
       t.string :title, null: false
-      t.integer :level, null: false, default: false
+      t.string :description, null: false
       t.integer :time_limit, default: 10
       t.string :image_url
       t.references :task, null: false, foreign_key: true

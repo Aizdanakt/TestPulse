@@ -22,8 +22,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = current_user.created_tests.build(test_params)
-    @test.task_id = params[:task_id]
+    @test = @task.tests.build(test_params)
     if @test.save
       redirect_to admin_task_path(@task)
     else
@@ -42,7 +41,7 @@ class Admin::TestsController < Admin::BaseController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :time_limit)
+    params.require(:test).permit(:title, :level, :time_limit, :image_url)
   end
 
   def find_test
