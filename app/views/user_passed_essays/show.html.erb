@@ -1,5 +1,9 @@
 <h1 class="text-success"><%=t(".header", title: @user_passed_essay.essay.title) %></h1>
 
+<p id="time-left"
+   data-time-left="<%= @user_passed_essay.time_left %>">
+</p>
+
 <div class="mb-4">
   <p>
     <strong><%= @user_passed_essay.essay.description %></strong>

@@ -1,7 +1,11 @@
 <h1 class="text-success"><%=t(".header", title: @user_passed_test.test.title) %></h1>
 
+<p id="time-left"
+   data-time-left="<%= @user_passed_test.time_left %>">
+</p>
+
 <div class="mb-4">
-  <p>
+  <p oncopy="return false;">
     <strong><%= @user_passed_test.current_question.body %></strong>
   </p>
   <p>
