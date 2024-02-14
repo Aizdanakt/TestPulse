@@ -1,14 +1,17 @@
-<h1>Тесты</h1>
+<h1>Материалы</h1>
 
-<table class="table table-striped table-bordered" style="border-color: #6610f2;">
-  <thead class="table-dark" style="border-color: #6610f2;">
-  <tr>
-    <th scope="col">Название</th>
-    <th scope="col">Уровень</th>
-    <th scope="col">Действие</th>
-  </tr>
-  </thead>
-  <tbody>
-  <%= render @tests %>
-  </tbody>
-</table>
+<div class="row g-4">
+  <div class="col-md-6">
+    <h2>Тесты</h2>
+    <div class="row row-cols-1 g-4">
+      <%= render @tests %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Эссе</h2>
+    <div class="row row-cols-1 g-4">
+      <%= render @essays %>
+    </div>
+  </div>
+</div>

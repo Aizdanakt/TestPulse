@@ -8,6 +8,7 @@ class Admin::TasksController < Admin::BaseController
 
   def show
     @tests = @task.tests
+    @essays = @task.essays
   end
 
   def edit; end

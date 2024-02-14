@@ -9,6 +9,7 @@ class User::TasksController < ApplicationController
 
   def show
     @tests = Task.find(params[:id]).tests
+    @essays = Task.find(params[:id]).essays
   end
 
   def archive

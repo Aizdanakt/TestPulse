@@ -22,6 +22,8 @@ Rails.application.routes.draw do
           resources :answers, shallow: true, except: :index
         end
       end
+
+      resources :essays, shallow: true, except: :index
     end
   end
 
@@ -30,11 +32,17 @@ Rails.application.routes.draw do
     # get :time_left, om: :member
   end
 
+  resources :user_passed_essays, only: %i[show update]
+
   namespace :user do
     resources :tasks, only: %i[index show] do
       get :archive, on: :collection
 
       resources :tests, only: [] do
+        post :start, on: :member
+      end
+
+      resources :essays, only: [] do
         post :start, on: :member
       end
     end

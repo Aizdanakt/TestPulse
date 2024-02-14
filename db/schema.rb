@@ -63,13 +63,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
   end
 
   create_table "user_passed_essays", force: :cascade do |t|
-    t.string "answer", null: false
+    t.string "answer"
     t.integer "essay_min_length", default: 50
     t.integer "user_id", null: false
-    t.integer "test_id", null: false
+    t.integer "essay_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_user_passed_essays_on_test_id"
+    t.index ["essay_id"], name: "index_user_passed_essays_on_essay_id"
     t.index ["user_id"], name: "index_user_passed_essays_on_user_id"
   end
 
@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
   add_foreign_key "questions", "tests"
   add_foreign_key "tasks", "users", column: "teacher_id"
   add_foreign_key "tests", "tasks"
-  add_foreign_key "user_passed_essays", "tests"
+  add_foreign_key "user_passed_essays", "essays"
   add_foreign_key "user_passed_essays", "users"
   add_foreign_key "user_passed_tests", "questions", column: "current_question_id"
   add_foreign_key "user_passed_tests", "tests"

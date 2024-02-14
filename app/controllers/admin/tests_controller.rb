@@ -2,10 +2,6 @@ class Admin::TestsController < Admin::BaseController
   before_action :find_task, only: %i[new create]
   before_action :find_test, only: %i[show edit update destroy]
 
-  def index
-    @tests = Test.all
-  end
-
   def show
     @questions = @test.questions
   end

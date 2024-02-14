@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_many :user_passed_tests, dependent: :destroy
   has_many :tests, through: :user_passed_tests
+
+  has_many :user_passed_essays, dependent: :destroy
+  has_many :essays, through: :user_passed_essays
+
   has_many :created_tasks, class_name: 'Task', foreign_key: 'teacher_id', dependent: :destroy
 
   validates :name, presence: true
@@ -35,6 +39,10 @@ class User < ApplicationRecord
     user_passed_tests.order(id: :desc).find_by(test_id: test.id)
   end
 
+  def user_passed_essay(essay)
+    user_passed_essays.order(id: :desc).find_by(essay_id: essay)
+  end
+
   def user_tests_by_level(level)
     tests.where(level: level)
   end
@@ -49,6 +57,10 @@ class User < ApplicationRecord
 
   def user_passed_tests_by_task(task)
     user_passed_tests.where(test_id: task.tests)
+  end
+
+  def user_passed_essays_by_task(task)
+    user_passed_essays.where(essay_id: task.essays)
   end
 
 end

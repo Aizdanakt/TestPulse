@@ -19,6 +19,10 @@ basic = Task.create!(title: 'basic', teacher: hans, description: 'test', start_t
 intermediate = Task.create!(title: 'intermediate', teacher: hans, description: 'test', start_time: Time.current, end_time: end_time)
 advanced = Task.create!(title: 'advanced', description: 'test', teacher: hans, start_time: Time.current, end_time: end_time)
 
+Essay.create!(title: 'ruby', description: 'test', task: basic)
+Essay.create!(title: 'js', description: 'test', task: intermediate)
+Essay.create!(title: 'python', description: 'test', task: advanced)
+
 basic_test = Test.create!(title: 'Ruby gems', level: 1, task: basic)
 intermediate_test = Test.create!(title: 'OOP', level: 2, task: intermediate)
 advanced_test = Test.create!(title: 'SOLID', level: 3, task: advanced)

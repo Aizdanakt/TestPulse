@@ -16,6 +16,10 @@
         <a class="nav-link text-white" href='<%= new_admin_task_test_path(@task) %>'>Создать тест</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link text-white" href='<%= new_admin_task_essay_path(@task) %>'>Создать эссе</a>
+      </li>
+
     <% when controller_name == 'tests' && action_name == 'show' %>
       <li class="nav-item">
         <a class="nav-link text-white" href='<%= new_admin_test_question_path(@test) %>'>Создать вопрос</a>
