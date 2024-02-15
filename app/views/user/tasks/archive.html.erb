@@ -1,50 +1,49 @@
 <div class="container">
-  <h1>Архив заданий</h1>
-
-  <% current_user.user_uniq_tasks.each do |task| %>
-    <div class="accordion" id="accordionTask<%= task.id %>">
+  <h2>Archive</h2>
+  <div class="accordion" id="accordionTasks">
+    <% @tasks.each do |task| %>
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingTask<%= task.id %>">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTask<%= task.id %>" aria-expanded="true" aria-controls="collapseTask<%= task.id %>">
             <%= task.title %>
           </button>
         </h2>
-        <div id="collapseTask<%= task.id %>" class="accordion-collapse collapse" aria-labelledby="headingTask<%= task.id %>" data-bs-parent="#accordionTask<%= task.id %>">
+        <div id="collapseTask<%= task.id %>" class="accordion-collapse collapse" aria-labelledby="headingTask<%= task.id %>" data-bs-parent="#accordionTasks">
           <div class="accordion-body">
             <% current_user.user_passed_tests_by_task(task).each do |passed_test| %>
-              <div class="accordion" id="accordion<%= passed_test.id %>">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading<%= passed_test.id %>">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= passed_test.id %>" aria-expanded="true" aria-controls="collapse<%= passed_test.id %>">
-                      <%= passed_test.test.title %>
-                    </button>
-                  </h2>
-                  <div id="collapse<%= passed_test.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= passed_test.id %>" data-bs-parent="#accordion<%= passed_test.id %>">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <% passed_test.test.questions.each do |question| %>
-                          <li class="list-group-item">
-                            <%= question.body %>
-                            <ul>
-                              <% question.answers.each do |answer| %>
-                                <%= views_answer(answer, passed_test, question) %>
-                              <% end %>
-                            </ul>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+              <div class="border p-3 mb-3">
+                <h5>
+                  <%= passed_test.test.title %>
+                </h5>
+                <% passed_test.test.questions.each do |question| %>
+                  <li class="list-group-item">
+                    <%= question.body %>
+                    <ul>
+                      <% question.answers.each do |answer| %>
+                        <%= views_answer(answer, passed_test, question) %>
+                      <% end %>
+                      <hr>
+                    </ul>
+                  </li>
+                <% end %>
+              </div>
+            <% end %>
+            <% current_user.user_passed_essays_by_task(task).each do |passed_essay| %>
+              <div class="border p-3 mb-3">
+                <h5>
+                  <%= passed_essay.essay.title %>
+                </h5>
+                <ul>
+                  <%= passed_essay.answer %>
+                </ul>
               </div>
             <% end %>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
 <div class="position-fixed" style="top: 50%; left: 20px;">
   <%= link_to user_tasks_path, class: 'btn btn-secondary' do %>
     <i class="bi bi-arrow-left"></i>

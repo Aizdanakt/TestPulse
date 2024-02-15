@@ -17,7 +17,7 @@
 
     <div class="field">
       <%= form.label :answer %>
-      <%= form.text_area :answer, rows: 6 %>
+      <%= form.text_area :answer, rows: 6, id: 'essay_answer', oncopy: "return false;" %>
     </div>
 
   <p><%= form.submit 'Завершить', class: 'btn btn-success' %></p>
