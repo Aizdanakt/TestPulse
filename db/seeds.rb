@@ -9,15 +9,13 @@
 #   end
 
 User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 3)
-User.create!(name: 'qwerty1', password: 'qwerty1', group: 2424, teacher_id: 3)
-User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
-hans = User.create!(name: 'teacher', password: 'teacher', type: 'Teacher')
+hans = User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
 
 end_time = Time.parse('2024-12-31 23:59:59')
 
-basic = Task.create!(title: 'basic', teacher: hans, description: 'test', start_time: Time.current, end_time: end_time)
-intermediate = Task.create!(title: 'intermediate', teacher: hans, description: 'test', start_time: Time.current, end_time: end_time)
-advanced = Task.create!(title: 'advanced', description: 'test', teacher: hans, start_time: Time.current, end_time: end_time)
+basic = Task.create!(title: 'basic', teacher: hans, description: 'test', group: '123', start_time: Time.current, end_time: end_time)
+intermediate = Task.create!(title: 'intermediate', teacher: hans, description: 'test', group: '123', start_time: Time.current, end_time: end_time)
+advanced = Task.create!(title: 'advanced', description: 'test', group: '123', teacher: hans, start_time: Time.current, end_time: end_time)
 
 Essay.create!(title: 'ruby', description: 'test', task: basic)
 Essay.create!(title: 'js', description: 'test', task: intermediate)

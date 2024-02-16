@@ -1,6 +1,9 @@
 class User::TasksController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :extract_tasks, only: %i[index archive result]
+  before_action :extract_tasks, only: %i[index archive result show]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+
   def index
     @end_time = Time.current
 
@@ -8,8 +11,10 @@ class User::TasksController < ApplicationController
   end
 
   def show
-    @tests = Task.find(params[:id]).tests
-    @essays = Task.find(params[:id]).essays
+    tasks_data = @all_tasks.where('end_time >= ?', Time.current)
+
+    @tests = tasks_data.find(params[:id]).tests
+    @essays = tasks_data.find(params[:id]).essays
   end
 
   def archive
@@ -24,7 +29,11 @@ class User::TasksController < ApplicationController
   private
 
   def extract_tasks
-    @all_tasks = Task.all
+    @all_tasks = Task.where(group: current_user&.group)
+  end
+
+  def render_404
+    render file: "#{Rails.root}/public/404.html", status: :not_found
   end
 
 end
