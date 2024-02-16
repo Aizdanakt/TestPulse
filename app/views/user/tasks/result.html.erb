@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Archive</h2>
+  <% current_user.user_passed_tests_by_task(@task).each do |passed_test| %>
+    <div class="border p-3 mb-3">
+      <h5>
+        <%= passed_test.test.title %>
+      </h5>
+      <% passed_test.test.questions.each do |question| %>
+        <li class="list-group-item">
+          <%= question.body %>
+          <ul>
+            <% question.answers.each do |answer| %>
+              <%= views_answer(answer, passed_test, question) %>
+            <% end %>
+            <hr>
+          </ul>
+        </li>
+      <% end %>
+    </div>
+  <% end %>
+  <% current_user.user_passed_essays_by_task(@task).each do |passed_essay| %>
+    <div class="border p-3 mb-3">
+      <h5>
+        <%= passed_essay.essay.title %>
+      </h5>
+      <ul>
+        <%= passed_essay.answer %>
+      </ul>
+    </div>
+  <% end %>
+</div>

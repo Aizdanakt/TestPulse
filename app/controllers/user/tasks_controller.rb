@@ -1,10 +1,10 @@
 class User::TasksController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :extract_tasks, only: %i[index archive]
+  before_action :extract_tasks, only: %i[index archive result]
   def index
     @end_time = Time.current
 
-    @tasks = @tasks.where(public: true).where('end_time >= ?', @end_time)
+    @tasks = @all_tasks.where(public: true).where('end_time >= ?', @end_time)
   end
 
   def show
@@ -14,13 +14,17 @@ class User::TasksController < ApplicationController
 
   def archive
     @current_time = Time.current
-    @tasks = @tasks.where('end_time <= ?', @current_time)
+    @tasks = @all_tasks.where('end_time <= ?', @current_time)
+  end
+
+  def result
+    @task = @all_tasks.find(params[:id])
   end
 
   private
 
   def extract_tasks
-    @tasks = Task.all
+    @all_tasks = Task.all
   end
 
 end

@@ -1,48 +1,19 @@
-<div class="container">
-  <h2>Archive</h2>
-  <div class="accordion" id="accordionTasks">
-    <% @tasks.each do |task| %>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTask<%= task.id %>">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTask<%= task.id %>" aria-expanded="true" aria-controls="collapseTask<%= task.id %>">
+<h1 class="mb-4">Archive</h1>
+<div style="margin-bottom: 30px">
+  <% @tasks.each do |task| %>
+    <article class="card mt-3 form-control-lg" style="border-color: #8e00ba">
+      <div class="card-body">
+        <section>
+          <p class="my-2">
             <%= task.title %>
-          </button>
-        </h2>
-        <div id="collapseTask<%= task.id %>" class="accordion-collapse collapse" aria-labelledby="headingTask<%= task.id %>" data-bs-parent="#accordionTasks">
-          <div class="accordion-body">
-            <% current_user.user_passed_tests_by_task(task).each do |passed_test| %>
-              <div class="border p-3 mb-3">
-                <h5>
-                  <%= passed_test.test.title %>
-                </h5>
-                <% passed_test.test.questions.each do |question| %>
-                  <li class="list-group-item">
-                    <%= question.body %>
-                    <ul>
-                      <% question.answers.each do |answer| %>
-                        <%= views_answer(answer, passed_test, question) %>
-                      <% end %>
-                      <hr>
-                    </ul>
-                  </li>
-                <% end %>
-              </div>
-            <% end %>
-            <% current_user.user_passed_essays_by_task(task).each do |passed_essay| %>
-              <div class="border p-3 mb-3">
-                <h5>
-                  <%= passed_essay.essay.title %>
-                </h5>
-                <ul>
-                  <%= passed_essay.answer %>
-                </ul>
-              </div>
-            <% end %>
-          </div>
-        </div>
+          </p>
+        </section>
+
+        <%= link_to 'Результаты', result_user_task_path(task), class: 'btn btn-primary' %>
       </div>
-    <% end %>
-  </div>
+    </article>
+  <% end %>
+
 </div>
 <div class="position-fixed" style="top: 50%; left: 20px;">
   <%= link_to user_tasks_path, class: 'btn btn-secondary' do %>
