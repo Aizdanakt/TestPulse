@@ -10,7 +10,9 @@
         <li><%= link_to 'Студенты', admin_students_path, class: 'dropdown-item' %></li>
         <li><%= link_to 'Страница студента', '/', class: 'dropdown-item' %></li>
         <li><%= link_to 'Создать студента', new_user_registration_path, class: 'dropdown-item' %></li>
-        <li><%= link_to 'Выйти', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'nav-link text-dark' %></li>
+        <li><%= link_to 'Выйти', destroy_user_session_path,
+                        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
+                        class: 'nav-link text-dark' %></li>
       </ul>
     <% else %>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
