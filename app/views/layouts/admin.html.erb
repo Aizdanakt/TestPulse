@@ -1,52 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TestPulse</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<html lang="ru" data-bs-theme="<%= cookies[:theme] %>">
+  <head>
+    <title>TestPulse</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-</head>
+  <body>
+    <%= render 'shared/admin_menu' %>
+    <main class="container">
+      <div class="container">
+        <%= display_flash_messages %>
+      </div>
+  
+      <%= yield %>
 
-<body>
-  <%= render 'shared/admin_menu' %>
-  <main class="container">
-    <div class="container">
-      <%= display_flash_messages %>
-    </div>
-
-    <%= yield %>
-
-    <dialog id="turbo-confirm">
-      <form method="dialog">
-        <p>Are you sure?</p>
-        <div>
-          <button class="btn btn-secondary" value="cancel">Cancel</button>
-          <button class="btn btn-primary" value="confirm">Confirm</button>
-        </div>
-      </form>
-    </dialog>
-
-<!--    <dialog id="turbo-confirm" class="modal" tabindex="-1">-->
-<!--      <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-<!--          <form method="dialog">-->
-<!--            <div class="modal-header">-->
-<!--              <h5 class="modal-title">Confirmation</h5>-->
-<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--              <p>Are you sure?</p>-->
-<!--            </div>-->
-<!--            <button class="btn btn-secondary">Cancel</button>-->
-<!--            <button class="btn btn-primary" value="confirm">Confirm</button>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </dialog>-->
-
-  </main>
-</body>
+      <%= render 'shared/turbo_confirm' %>
+    </main>
+  </body>
 </html>

@@ -2,7 +2,6 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><%= test.title %></h5>
-      <p class="card-text">Уровень: <%= test.level %></p>
       <p class="card-text">Лимит времени: <%= test.time_limit %></p>
       <%= button_to 'Старт', start_user_task_test_path(test.task, test), class: 'btn btn-primary' %>
     </div>

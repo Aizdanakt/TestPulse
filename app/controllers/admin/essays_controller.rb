@@ -12,13 +12,13 @@ class Admin::EssaysController < Admin::BaseController
 
   def destroy
     @essay.destroy
-    redirect_to admin_task_essays_path(@essay)
+    redirect_to admin_task_essays_path(@essay), success: 'Эссе успешно удалено'
   end
 
   def create
     @essay = @task.essays.build(essay_params)
     if @essay.save
-      redirect_to admin_task_path(@task)
+      redirect_to admin_task_path(@task), success: 'Эссе успешно создано'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::EssaysController < Admin::BaseController
 
   def update
     if @essay.update(essay_params)
-      redirect_to admin_task_path(@essay.task)
+      redirect_to admin_task_path(@essay.task), success: 'Эссе успешно обновлено'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::EssaysController < Admin::BaseController
   private
 
   def essay_params
-    params.require(:essay).permit(:title, :description, :time_limit, :image_url)
+    params.require(:essay).permit(:title, :description, :min_length, :time_limit, :image_url)
   end
 
   def find_essay

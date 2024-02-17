@@ -11,10 +11,10 @@ class User::TasksController < ApplicationController
   end
 
   def show
-    tasks_data = @all_tasks.where('end_time >= ?', Time.current)
+    tasks_data = @all_tasks.where('end_time >= ?', Time.current).find(params[:id])
 
-    @tests = tasks_data.find(params[:id]).tests
-    @essays = tasks_data.find(params[:id]).essays
+    @tests = tasks_data.tests
+    @essays = tasks_data.essays
   end
 
   def archive

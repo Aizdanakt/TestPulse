@@ -4,9 +4,16 @@
     <li class="nav-item">
       <span class="nav-link text-white">|</span>
     </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href='<%= request.referer || root_path %>'>Назад</a>
+    </li>
 
   </ul>
   <ul class="nav ml-auto">
+
+    <li class="nav-item">
+      <%= render 'shared/set_theme' %>
+    </li>
 
     <li class="nav-item">
       <%= render 'shared/login_links' %>

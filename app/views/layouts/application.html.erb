@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="<%= cookies[:theme] %>">
   <head>
     <title>TestPulse</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,7 +11,15 @@
   </head>
 
   <body>
-  <%= render 'shared/user_menu' %>
-    <%= yield %>
+    <%= render 'shared/user_menu' %>
+    <main class="container">
+      <div class="container">
+        <%= display_flash_messages %>
+      </div>
+
+      <%= yield %>
+
+      <%= render 'shared/turbo_confirm' %>
+    </main>
   </body>
 </html>

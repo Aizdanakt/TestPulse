@@ -1,0 +1,30 @@
+:root {
+  //--light-bg-color: white;
+  --light-text-color: white;
+  --dark-bg-color: black;
+  --dark-text-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background: var(--dark-bg-color);
+    color: var(--dark-text-color);
+  }
+
+  html.light {
+    background: var(--light-bg-color);
+    color: var(--light-text-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    background: var(--light-bg-color);
+    color: var(--light-text-color);
+  }
+
+  html.dark {
+    background: var(--dark-bg-color);
+    color: var(--dark-text-color);
+  }
+}

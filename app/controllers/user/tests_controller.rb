@@ -3,13 +3,15 @@ class User::TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
-    time = Time.current
 
-    if @test.task.end_time >= time && @test.task.start_time <= time
-      current_user.tests.push(@test)
-      redirect_to user_passed_test_path(current_user.user_passed_test(@test))
+    if @test.deadline_passed?
+      redirect_to user_task_path(@test.task), error: 'Срок для прохождения теста прошел'
+    elsif @test.attempts_over?
+      redirect_to user_task_path(@test.task), error: 'Ваши попытки закончились'
     else
-      redirect_to user_task_path(@test)
+      current_user.tests << @test
+      @test.decrement!(:attempts)
+      redirect_to user_passed_test_path(current_user.user_passed_test(@test))
     end
   end
 end

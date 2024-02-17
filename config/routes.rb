@@ -4,10 +4,13 @@ Rails.application.routes.draw do
              :controllers => { :registrations => 'registrations'}
 
   root 'user/tasks#index'
+  get 'set_theme', to: 'theme#update'
 
   namespace :admin do
 
-    resources :students, only: %i[index show destroy]
+    resources :students, only: %i[index show destroy] do
+      get '/tasks/:task_id/result', to: 'students#result', on: :member, as: :task_result
+    end
 
     resources :tasks do
       patch :make_public, on: :member
@@ -25,9 +28,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_passed_tests, only: %i[show update] do
-    get :result, on: :member
-  end
+  resources :user_passed_tests, only: %i[show update]
 
   resources :user_passed_essays, only: %i[show update]
 

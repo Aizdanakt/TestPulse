@@ -39,6 +39,13 @@ class UserPassedTest < ApplicationRecord
     remaining_time.positive? ? remaining_time : 0
   end
 
+  def elapsed_time
+    time_difference = updated_at - created_at
+    minutes = (time_difference / 60).to_i
+    seconds = (time_difference % 60).to_i
+    "#{minutes} минут: #{seconds} секунд"
+  end
+
   private
 
   def test_time_finish

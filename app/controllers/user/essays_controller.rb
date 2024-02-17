@@ -3,13 +3,15 @@ class User::EssaysController < ApplicationController
 
   def start
     @essay = Essay.find(params[:id])
-    time = Time.current
 
-    if @essay.task.end_time >= time && @essay.task.start_time <= time
-      current_user.essays.push(@essay)
-      redirect_to user_passed_essay_path(current_user.user_passed_essay(@essay))
+    if @essay.deadline_passed?
+      redirect_to user_task_path(@essay.task), error: 'Срок для прохождения эссе прошел'
+    elsif @essay.attempts_over?
+      redirect_to user_task_path(@essay.task), error: 'Ваши попытки закончились'
     else
-      redirect_to user_task_path(@essay)
+      current_user.essays << @essay
+      @essay.decrement!(:attempts)
+      redirect_to user_passed_essay_path(current_user.user_passed_essay(@essay))
     end
   end
 end

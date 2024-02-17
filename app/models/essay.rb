@@ -6,4 +6,13 @@ class Essay < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
+
+  def deadline_passed?
+    time = Time.current
+    task.end_time <= time && task.start_time >= time
+  end
+
+  def attempts_over?
+    attempts.zero?
+  end
 end

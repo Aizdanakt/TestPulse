@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 3)
+User.create!(name: 'qwerty', password: 'qwerty', group: 123, teacher_id: 3)
 hans = User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
 
 end_time = Time.parse('2024-12-31 23:59:59')
@@ -21,9 +21,9 @@ Essay.create!(title: 'ruby', description: 'test', task: basic)
 Essay.create!(title: 'js', description: 'test', task: intermediate)
 Essay.create!(title: 'python', description: 'test', task: advanced)
 
-basic_test = Test.create!(title: 'Ruby gems', level: 1, task: basic)
-intermediate_test = Test.create!(title: 'OOP', level: 2, task: intermediate)
-advanced_test = Test.create!(title: 'SOLID', level: 3, task: advanced)
+basic_test = Test.create!(title: 'Ruby gems', task: basic)
+intermediate_test = Test.create!(title: 'OOP', task: intermediate)
+advanced_test = Test.create!(title: 'SOLID', task: advanced)
 
 # creating questions for basic_test
 basic_test_question_first = Question.create!(body: 'What task does Device perform?', test: basic_test)

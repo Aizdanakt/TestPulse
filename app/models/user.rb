@@ -43,10 +43,6 @@ class User < ApplicationRecord
     user_passed_essays.order(id: :desc).find_by(essay_id: essay)
   end
 
-  def user_tests_by_level(level)
-    tests.where(level: level)
-  end
-
   def user_uniq_tasks
     tests = Test.joins(:user_passed_tests).where(user_passed_tests: { user_id: id }).distinct
     task_ids = tests.pluck(:task_id).uniq

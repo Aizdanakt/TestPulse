@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
     t.string "title", null: false
     t.string "description", null: false
     t.integer "time_limit", default: 10
+    t.integer "attempts", default: 1
+    t.integer "min_length", default: 50
     t.string "image_url"
     t.integer "task_id", null: false
     t.datetime "created_at", null: false
@@ -54,8 +56,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "level", default: 0, null: false
     t.integer "time_limit", default: 10
+    t.integer "attempts", default: 1
     t.string "image_url"
     t.integer "task_id", null: false
     t.datetime "created_at", null: false
@@ -65,7 +67,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
 
   create_table "user_passed_essays", force: :cascade do |t|
     t.string "answer"
-    t.integer "essay_min_length", default: 50
     t.integer "user_id", null: false
     t.integer "essay_id", null: false
     t.datetime "created_at", null: false

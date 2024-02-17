@@ -6,19 +6,23 @@
 
 <div class="mb-4">
   <p>
-    <strong><%= @user_passed_essay.essay.description %></strong>
+    <strong oncopy="return false;"><%= @user_passed_essay.essay.description %></strong>
   </p>
   <p>
-    Минимальный размер текста: <strong><%= @user_passed_essay.essay_min_length %></strong>
+    Минимальный размер текста: <strong><%= @user_passed_essay.essay.min_length %></strong>
+  </p>
+  <p>
+    <%= image_tag @user_passed_essay.essay.image_url, class: 'img-fluid rounded', style: 'width: 50%; height: auto;' %>
   </p>
 </div>
 
-<%= form_with url: user_passed_essay_path(@user_passed_essay), local: false, method: :put, data: {turbo: false} do |form| %>
+<%= form_with url: user_passed_essay_path(@user_passed_essay), local: false, method: :put, data: { turbo: false } do |form| %>
 
-    <div class="field">
-      <%= form.label :answer %>
-      <%= form.text_area :answer, rows: 6, id: 'essay_answer', oncopy: "return false;" %>
-    </div>
+  <div class="mb-3">
+    <%= form.label :answer, class: 'form-label' %>
+    <%= form.text_area :answer, rows: 6, id: 'essay_answer', class: 'form-control', oncopy: 'return false;' %>
+  </div>
 
-  <p><%= form.submit 'Завершить', class: 'btn btn-success' %></p>
+  <%= form.submit 'Завершить', class: 'btn btn-success' %>
+
 <% end %>
