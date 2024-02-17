@@ -11,9 +11,7 @@
   <p>
     Минимальный размер текста: <strong><%= @user_passed_essay.essay.min_length %></strong>
   </p>
-  <p>
-    <%= image_tag @user_passed_essay.essay.image_url, class: 'img-fluid rounded', style: 'width: 50%; height: auto;' %>
-  </p>
+  <img src="<%= @user_passed_essay&.essay&.image_url %>">
 </div>
 
 <%= form_with url: user_passed_essay_path(@user_passed_essay), local: false, method: :put, data: { turbo: false } do |form| %>

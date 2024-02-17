@@ -14,5 +14,6 @@ class Essay < ApplicationRecord
 
   def attempts_over?
     attempts.zero?
+    false
   end
 end

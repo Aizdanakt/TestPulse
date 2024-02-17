@@ -19,7 +19,7 @@
 <%= form_with url: user_passed_test_path(@user_passed_test), local: false, method: :put, data: {turbo: false} do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_passed_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <div class="form-check">
-      <%= b.check_box id: "answer_ids_#{b.object.id}", class: "form-check-input" %>
+      <%= b.check_box id: "answer_ids_#{b.object.id}", class: "form-check-input checkbox-js" %>
       <%= b.label class: "form-check-label", oncopy: "return false;" %>
     </div>
   <% end %>

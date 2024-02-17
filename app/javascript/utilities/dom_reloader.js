@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie';
-
 document.addEventListener('turbo:render', domReload);
 document.addEventListener('DOMContentLoaded', domReload);
 

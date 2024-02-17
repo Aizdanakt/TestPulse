@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', checkIfAtLeastOneChecked);
 
 
 function checkIfAtLeastOneChecked() {
-    const checkboxes = document.querySelectorAll('.form-check-input');
+    const checkboxes = document.querySelectorAll('.checkbox-js');
     const submitBtn = document.querySelector('input[type="submit"]');
     let atLeastOneChecked = false;
 

@@ -13,8 +13,7 @@ class Test < ApplicationRecord
   end
 
   def attempts_over?
-    # attempts.zero?
-    false
+    attempts.zero?
   end
 
 end
