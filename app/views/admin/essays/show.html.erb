@@ -10,10 +10,7 @@
       <p>
         Min length: <%= @essay.min_length %>
       </p>
-      <p>
-        <img src="<%= @essay.image_url %>">
-      </p>
-
+      <img src="<%= @essay&.image_url %>" style="width: 20%; height: auto; image-rendering: auto;">
     </section>
   </article>
 </div>

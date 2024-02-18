@@ -1,4 +1,4 @@
-<article class="card mt-3">
+<article class="card mt-3" style="border-color: #118098">
   <div class="card-body">
     <section>
       <p class="my-2">
@@ -7,13 +7,18 @@
       <p class="my-2">
         Description: <%= essay.description %>
       </p>
-      <p>
-        <img src="<%= essay.image_url %>">
-      </p>
+      <img src="<%= essay&.image_url %>" style="width: 20%; height: auto; image-rendering: auto;" class="mb-2">
     </section>
 
-    <%= link_to 'Show', admin_essay_path(essay), class: 'btn btn-primary' %>
-    <%= link_to 'Update', edit_admin_essay_path(essay), class: 'btn btn-warning' %>
-    <%= link_to "Delete", admin_essay_path(essay), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <%= link_to 'Show', admin_essay_path(essay),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;" %>
+    <%= link_to 'Update', edit_admin_essay_path(essay),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;" %>
+    <%= link_to "Delete", admin_essay_path(essay),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;",
+                data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   </div>
 </article>

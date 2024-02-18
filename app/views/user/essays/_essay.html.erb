@@ -1,9 +1,13 @@
 <div class="col">
-  <div class="card">
-    <div class="card-body">
+  <div class="card" style="border-color: #118098">
+    <div class="card-body" >
       <h5 class="card-title"><%= essay.title %></h5>
       <p class="card-text">Лимит времени: <%= essay.time_limit %></p>
-      <%= button_to 'Старт', start_user_task_essay_path(essay.task, essay), class: 'btn btn-primary' %>
+      <p class="card-text">Минимум символов: <%= essay.min_length %></p>
+      <%= button_to 'Старт',
+                    start_user_task_essay_path(essay.task, essay),
+                    class: 'btn text-white',
+                    style: "background-color: #6610f2;" %>
     </div>
   </div>
 </div>

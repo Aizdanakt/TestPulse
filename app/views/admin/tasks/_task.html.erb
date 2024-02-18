@@ -1,4 +1,4 @@
-<article class="card mt-3 form-control-lg">
+<article class="card mt-3 form-control-lg" style="border-color: #118098">
   <div class="card-body">
     <section>
       <p class="my-2">
@@ -15,10 +15,17 @@
       </p>
     </section>
 
-    <%= link_to 'Show', admin_task_path(task), class: 'btn btn-primary' %>
-    <%= link_to 'Update', edit_admin_task_path(task), class: 'btn btn-warning' %>
+    <%= link_to 'Show', admin_task_path(task),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;" %>
+    <%= link_to 'Update', edit_admin_task_path(task),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;" %>
+    <%= link_to "Delete", admin_task_path(task),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;",
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 
-    <%= link_to "Delete", admin_task_path(task), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     <% if task.public %>
       <%= link_to "Make Private", make_private_admin_task_path(task), class: 'btn btn-warning', data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
     <% else %>
