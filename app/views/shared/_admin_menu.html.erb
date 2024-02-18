@@ -1,6 +1,6 @@
 <nav id="navbar-example2" class="navbar navbar-light" style="background-color: #6610f2;">
   <ul class="nav nav-pills">
-
+    <%= render 'shared/logo_role_link' %>
     <li class="nav-item">
       <span class="nav-link text-white">|</span>
     </li>
@@ -14,6 +14,10 @@
     <% when controller_name == 'tasks' && action_name == 'show' %>
       <li class="nav-item">
         <a class="nav-link text-white" href='<%= new_admin_task_test_path(@task) %>'>Создать тест</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" href='<%= new_admin_task_essay_path(@task) %>'>Создать эссе</a>
       </li>
 
     <% when controller_name == 'tests' && action_name == 'show' %>
@@ -37,6 +41,9 @@
     <% end %>
   </ul>
   <ul class="nav ml-auto">
+    <li class="nav-item">
+      <%= render 'shared/set_theme' %>
+    </li>
 
     <li class="nav-item">
       <%= render 'shared/login_links' %>

@@ -1,0 +1,16 @@
+<h1 class="mb-4">Essay</h1>
+<div style="margin-bottom: 30px">
+  <article class="card mt-3">
+    <section>
+      <p class="my-10">
+        Title:  <%= @essay.title %>
+      <p>
+        Description: <%= @essay.description %>
+      </p>
+      <p>
+        Min length: <%= @essay.min_length %>
+      </p>
+      <img src="<%= @essay&.image_url %>" style="width: 20%; height: auto; image-rendering: auto;">
+    </section>
+  </article>
+</div>

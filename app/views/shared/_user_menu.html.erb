@@ -1,12 +1,19 @@
 <nav id="navbar-example2" class="navbar navbar-light" style="background-color: #6610f2;">
   <ul class="nav nav-pills">
-
+    <%= render 'shared/logo_role_link' %>
     <li class="nav-item">
       <span class="nav-link text-white">|</span>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href='<%= request.referer || root_path %>'>Назад</a>
     </li>
 
   </ul>
   <ul class="nav ml-auto">
+
+    <li class="nav-item">
+      <%= render 'shared/set_theme' %>
+    </li>
 
     <li class="nav-item">
       <%= render 'shared/login_links' %>

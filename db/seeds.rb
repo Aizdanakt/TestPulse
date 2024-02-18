@@ -8,22 +8,22 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-basic_category = Category.create!(title: 'basic')
-intermediate_category = Category.create!(title: 'intermediate')
-advanced_category = Category.create!(title: 'advanced')
+User.create!(name: 'qwerty', password: 'qwerty', group: 123, teacher_id: 3)
+hans = User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
 
-User.create!(name: 'qwerty', password: 'qwerty', group: 2424, teacher_id: 3)
-User.create!(name: 'qwerty1', password: 'qwerty1', group: 2424, teacher_id: 3)
-User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
-hans = User.create!(name: 'teacher', password: 'teacher', type: 'Teacher')
 end_time = Time.parse('2024-12-31 23:59:59')
-basic = Task.create!(title: 'basic', teacher: hans, start_time: Time.current, end_time: end_time)
-intermediate = Task.create!(title: 'intermediate', teacher: hans, start_time: Time.current, end_time: end_time)
-advanced = Task.create!(title: 'advanced', teacher: hans, start_time: Time.current, end_time: end_time)
 
-basic_test = Test.create!(title: 'Ruby gems', level: 1, category: basic_category, author: hans, task: basic)
-intermediate_test = Test.create!(title: 'OOP', level: 2, category: intermediate_category, author: hans, task: intermediate)
-advanced_test = Test.create!(title: 'SOLID', level: 3, category: advanced_category, author: hans, task: advanced)
+basic = Task.create!(title: 'basic', teacher: hans, description: 'test', group: '123', start_time: Time.current, end_time: end_time)
+intermediate = Task.create!(title: 'intermediate', teacher: hans, description: 'test', group: '123', start_time: Time.current, end_time: end_time)
+advanced = Task.create!(title: 'advanced', description: 'test', group: '123', teacher: hans, start_time: Time.current, end_time: end_time)
+
+Essay.create!(title: 'ruby', description: 'test', task: basic)
+Essay.create!(title: 'js', description: 'test', task: intermediate)
+Essay.create!(title: 'python', description: 'test', task: advanced)
+
+basic_test = Test.create!(title: 'Ruby gems', task: basic)
+intermediate_test = Test.create!(title: 'OOP', task: intermediate)
+advanced_test = Test.create!(title: 'SOLID', task: advanced)
 
 # creating questions for basic_test
 basic_test_question_first = Question.create!(body: 'What task does Device perform?', test: basic_test)

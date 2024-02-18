@@ -1,4 +1,4 @@
-<article class="card mt-3">
+<article class="card mt-3" style="border-color: #118098">
   <div class="card-body">
     <section>
       <p class="my-2">
@@ -6,9 +6,15 @@
       </p>
     </section>
 
-    <%= link_to 'Show', admin_question_path(question), class: 'btn btn-primary' %>
-    <%= link_to 'Update', edit_admin_question_path(question), class: 'btn btn-warning' %>
-    <%= link_to "Delete", admin_question_path(question),class: 'btn btn-danger',
+    <%= link_to 'Show', admin_question_path(question),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;" %>
+    <%= link_to 'Update', edit_admin_question_path(question),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;" %>
+    <%= link_to "Delete", admin_question_path(question),
+                class: 'btn text-white',
+                style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   </div>
 </article>

@@ -9,13 +9,13 @@ class UserPassedTest < ApplicationRecord
   before_validation :before_validation_set_first_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? || out_of_time?
   end
 
   def accept!(answer_ids)
     self.answers_data ||= {}
     self.answers_data[current_question.id] = answer_ids
-    self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.correct_questions += 1 if correct_answer?(answer_ids) && in_time?
     save!
   end
 
@@ -33,7 +33,32 @@ class UserPassedTest < ApplicationRecord
     resource.test.questions.index(resource.current_question) + 1
   end
 
+  def time_left
+    elapsed_time = (Time.current - created_at).to_i
+    remaining_time = (test.time_limit * 60) - elapsed_time
+    remaining_time.positive? ? remaining_time : 0
+  end
+
+  def elapsed_time
+    time_difference = updated_at - created_at
+    minutes = (time_difference / 60).to_i
+    seconds = (time_difference % 60).to_i
+    "#{minutes} минут: #{seconds} секунд"
+  end
+
   private
+
+  def test_time_finish
+    created_at + (test.time_limit * 60)
+  end
+
+  def out_of_time?
+    test_time_finish.past?
+  end
+
+  def in_time?
+    test_time_finish.future?
+  end
 
   def correct_answer?(answer_ids)
     correct_answers.ids.sort == answer_ids.to_a.map(&:to_i).sort
@@ -54,6 +79,4 @@ class UserPassedTest < ApplicationRecord
                               next_question
                             end
   end
-
-
 end

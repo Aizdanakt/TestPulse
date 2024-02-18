@@ -1,28 +1,31 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>Sign up</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: "form-label" %><br />
+      <%= f.text_field :name, autocomplete: "name", class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name, class: "form-label mt-3" %><br />
-    <%= f.text_field :name, autocomplete: "name", class: "form-control " %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :group, class: "form-label" %><br />
+      <%= f.text_field :group, autocomplete: "group", class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= f.hidden_field :teacher_id, value: current_user.id %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :password, class: "form-label" %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="mb-3">
+      <%= f.label :password_confirmation, class: "form-label" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="mt-4">
+      <%= f.submit "Create User", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

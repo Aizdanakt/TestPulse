@@ -11,7 +11,7 @@ class Admin::QuestionsController < Admin::BaseController
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to admin_test_path(@test)
+      redirect_to admin_test_path(@test), success: 'Вопрос успешно создан'
     else
       render :new
     end
@@ -21,7 +21,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to admin_test_path(@question.test)
+      redirect_to admin_test_path(@question.test), success: 'Вопрос успешно обновлен'
     else
       render :edit
     end
@@ -29,7 +29,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def destroy
     @question.destroy
-    redirect_to admin_test_path
+    redirect_to admin_test_path, success: 'Вопрос успешно удален'
   end
 
   private

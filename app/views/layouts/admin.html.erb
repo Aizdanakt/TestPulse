@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TestPulse</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<html lang="ru" data-bs-theme="<%= cookies[:theme] %>">
+  <head>
+    <title>TestPulse</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-</head>
+  <body>
+    <%= render 'shared/admin_menu' %>
+    <main class="container">
+      <div class="container">
+        <%= display_flash_messages %>
+      </div>
+  
+      <%= yield %>
 
-<body>
-<%= render 'shared/admin_menu' %>
-<%= yield %>
-</body>
+      <%= render 'shared/turbo_confirm' %>
+    </main>
+  </body>
 </html>

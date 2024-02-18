@@ -1,4 +1,5 @@
 class Admin < User
+  has_many :tasks, dependent: :destroy
 
   def students
     User.where(teacher_id: id)
