@@ -8,4 +8,9 @@ class Task < ApplicationRecord
   validates :description, presence: true
 
   scope :by_teacher, ->(teacher) { where(teacher_id: teacher.id) }
+
+  def formatted_time(time)
+    time.strftime('%d.%m %H:%M')
+  end
+
 end

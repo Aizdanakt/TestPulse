@@ -5,7 +5,7 @@
       <h5>
         <%= passed_test.test.title %> <%= views_result(passed_test) %>
       </h5>
-      <p class="elapsed-time">Затарчено времени на прохождение теста: <%= passed_test.elapsed_time %> </p>
+      <p class="elapsed-time"><%= t('.time_test') %>: <%= passed_test.elapsed_time %> </p>
       <% passed_test.test.questions.each do |question| %>
         <li class="list-group-item">
           <%= question.body %>
@@ -24,7 +24,7 @@
       <h5>
         <%= passed_essay.essay.title %>
       </h5>
-      <p class="elapsed-time">Затарчено времени на эссе: <%= passed_essay.elapsed_time %> </p>
+      <p class="elapsed-time"><%= t('.time_essay') %>: <%= passed_essay.elapsed_time %> </p>
       <ul>
         <%= passed_essay.answer %>
       </ul>

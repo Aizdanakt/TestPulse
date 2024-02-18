@@ -2,23 +2,23 @@
   <div class="card-body">
     <section>
       <p class="my-2">
-        Title: <%= test.title %>
+        <%= t('.title') %>: <%= test.title %>
       </p>
       <p class="my-2">
-        Number of questions: <%= test.questions.count %>
+        <%= t('.number') %>: <%= test.questions.count %>
       </p>
       <p>
         <img src="<%= test.image_url %>">
       </p>
     </section>
 
-    <%= link_to 'Show', admin_test_path(test),
+    <%= link_to t('.show'), admin_test_path(test),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
-    <%= link_to 'Update', edit_admin_test_path(test),
+    <%= link_to t('.edit'), edit_admin_test_path(test),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
-    <%= link_to "Delete", admin_test_path(test),
+    <%= link_to t('.delete'), admin_test_path(test),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>

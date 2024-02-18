@@ -6,13 +6,13 @@
       </p>
     </section>
 
-    <%= link_to 'Show', admin_answer_path(answer),
+    <%= link_to t('.show'), admin_answer_path(answer),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;"%>
-    <%= link_to 'Edit', edit_admin_answer_path(answer),
+    <%= link_to t('.edit'), edit_admin_answer_path(answer),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;"%>
-    <%= link_to 'Delete', admin_answer_path(answer),
+    <%= link_to t('.delete'), admin_answer_path(answer),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>

@@ -1,31 +1,141 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  hello: Hello world
+  admin:
+    answers:
+      answer:
+        show: show
+        edit: edit
+        delete: delete
+      form:
+        submit: Create
+      edit:
+        header: Edit Answer
+      new:
+        header: Create New Answer
+      show:
+        header: Answer
+        correct: Correct
+    essays:
+      essay:
+        title: Title
+        description: Description
+        show: show
+        edit: edit
+        delete: delete
+      form:
+        create: Create
+      edit:
+        header: Edit Essay
+      new:
+        header: Create New Essay
+      show:
+        header: Essay
+        title: Title
+        description: Description
+        min_length: Minimum length
+    questions:
+      form:
+        submit: Create
+      question:
+        show: show
+        edit: edit
+        delete: delete
+      edit:
+        header: Edit Question
+      new:
+        header: Create New Question
+      show:
+        answers: Answers
+    students:
+      student:
+        show: show
+        delete: delete
+      index:
+        name: Name
+        group: Group
+        teacher_id: ID Teacher
+      result:
+        time_test: Time spent on the test
+        time_essay: Time spent on the essay
+      show:
+        info: information about the student
+        results: results
+    tasks:
+      form:
+        submit: Create
+      task:
+        title: Title
+        group: Group
+        start_time: Start time
+        end_time: End Time
+        show: show
+        edit: edit
+        delete: delete
+        make_private: Make private
+        make_public: Make public
+      archive:
+        header: Archive
+      edit:
+        header: Edit Task
+      new:
+        header: Create New Task
+      index:
+        header: Tasks
+      show:
+        header: Task
+    tests:
+      form:
+        submit: Create
+      test:
+        title: Title
+        number:  Number of questions
+        show: show
+        edit: edit
+        delete: delete
+      edit:
+        header: Edit Test
+      new:
+        header: Create New Test
+      show:
+        header: Test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

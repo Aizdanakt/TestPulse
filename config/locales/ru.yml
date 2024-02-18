@@ -1,0 +1,132 @@
+ru:
+  hello: Привет, мир!
+  admin:
+    answers:
+      answer:
+        show: показать
+        edit: редактировать
+        delete: удалить
+      form:
+        submit: Создать
+      edit:
+        header: Редактировать Ответ
+      new:
+        header: Создать новый ответ
+      show:
+        header: Ответ
+        correct: Корректность
+    essays:
+      essay:
+        title: Название
+        description: Описание
+        show: показать
+        edit: редактировать
+        delete: удалить
+      form:
+        create: Создать
+      edit:
+        header: Редактировать Эссе
+      new:
+        header: Создать новое Эссе
+      show:
+        header: Эссе
+        title: Название
+        description: Описание
+        min_length: Минимальная длинна
+    questions:
+      form:
+        submit: Создать
+      question:
+        show: показать
+        edit: редактировать
+        delete: удалить
+      edit:
+        header: Редактировать Вопрос
+      new:
+        header: Создать новый Вопрос
+      show:
+        answers: Ответы
+    students:
+      student:
+        show: показать
+        delete: удалить
+      index:
+        name: Имя
+        group: Группа
+        teacher_id: ID учителя
+      result:
+        time_test: Затрачено времени на тест
+        time_essay: Затрачено времени на эссе
+      show:
+        info: Информация о студенте
+        results: результаты
+    tasks:
+      form:
+        submit: Создать
+      task:
+        title: Название
+        group: Группа
+        start_time: Время начала
+        end_time: Время окончания
+        show: показать
+        edit: редактировать
+        delete: удалить
+        make_private: Скрыть
+        make_public: Опубликовать
+      archive:
+        header: Архив
+      edit:
+        header: Редактировать задание
+      new:
+        header: Создать новое задание
+      index:
+        header: Задания
+      show:
+        header: Задание
+    tests:
+      form:
+        submit: Создать
+      test:
+        title: Название
+        number: Количество вопросов
+        show: показать
+        edit: редактировать
+        delete: удалить
+      edit:
+        header: Редактировать Тест
+      new:
+        header: Создать новый Тест
+      show:
+        header: Тест
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

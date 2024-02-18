@@ -1,14 +1,14 @@
-<h1 class="mb-4">Essay</h1>
+<h1 class="mb-4"><%= t('.header') %></h1>
 <div style="margin-bottom: 30px">
   <article class="card mt-3">
     <section>
       <p class="my-10">
-        Title:  <%= @essay.title %>
+        <%= t('.title') %>:  <%= @essay.title %>
       <p>
-        Description: <%= @essay.description %>
+        <%= t('.description') %>: <%= @essay.description %>
       </p>
       <p>
-        Min length: <%= @essay.min_length %>
+        <%= t('.min_length') %>: <%= @essay.min_length %>
       </p>
       <img src="<%= @essay&.image_url %>" style="width: 20%; height: auto; image-rendering: auto;">
     </section>
