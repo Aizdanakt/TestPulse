@@ -48,6 +48,6 @@
 
 .env
 yarn-error.log
-
+app/assets/images/
 
 /config/credentials/production.key
