@@ -1,7 +1,6 @@
-<h1 class="text-success"><%=t(".header", title: @user_passed_test.test.title) %></h1>
-
 <p id="time-left"
-   data-time-left="<%= @user_passed_test.time_left %>">
+   data-time-left="<%= @user_passed_test.time_left %>"
+   class="mt-3">
 </p>
 
 <div class="mb-4">
@@ -24,5 +23,5 @@
     </div>
     <hr>
   <% end %>
-  <p><%= form.submit 'Next', class: 'btn btn-success' %></p>
+  <p><%= form.submit t('.submit'), class: 'btn btn-success' %></p>
 <% end %>

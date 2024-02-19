@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  rescue_from ActiveRecord::RecordNotFound, with: :render404
+  rescue_from ActionController::RoutingError, with: :handle_routing_error
+  rescue_from NoMethodError, with: :render500
   add_flash_types :success, :error
 
   def after_sign_in_path_for(resource)
@@ -8,6 +11,18 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def render500
+    render file: "#{Rails.root}/public/500.html", status: :not_found
+  end
+
+  def render404
+    render file: "#{Rails.root}/public/404.html", status: :not_found
+  end
+
+  def handle_routing_error
+    redirect_to root_url, alert: 'Page not found'
+  end
 
   def set_locale
     I18n.locale = :ru

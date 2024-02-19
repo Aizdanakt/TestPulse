@@ -15,6 +15,16 @@ en:
       show:
         header: Answer
         correct: Correct
+
+
+      create:
+        create_answer: The answer was successfully created
+      update:
+        update_answer: The answer has been successfully updated
+      destroy:
+        destroy_answer: The answer was successfully deleted
+
+
     essays:
       essay:
         title: Title
@@ -33,6 +43,16 @@ en:
         title: Title
         description: Description
         min_length: Minimum length
+
+
+      create:
+        create_essay: The essay was successfully created
+      update:
+        update_essay: The essay has been successfully updated
+      destroy:
+        destroy_essay: The essay was successfully deleted
+
+
     questions:
       form:
         submit: Create
@@ -46,6 +66,16 @@ en:
         header: Create New Question
       show:
         answers: Answers
+
+
+      create:
+        create_question: The question was successfully created
+      update:
+        update_question: The question has been successfully updated
+      destroy:
+        destroy_question: The question was successfully deleted
+
+
     students:
       student:
         show: show
@@ -60,6 +90,11 @@ en:
       show:
         info: information about the student
         results: results
+
+      destroy:
+        destroy_student: Студент успешно удален
+
+
     tasks:
       form:
         submit: Create
@@ -98,6 +133,82 @@ en:
         header: Create New Test
       show:
         header: Test
+        title: Title
+  devise:
+    registrations:
+      edit:
+        header: edit
+      new:
+        header: Create New User
+        submit: Create
+    sessions:
+      new:
+        submit: Log in
+  shared:
+    admin_menu:
+      create_task: Create task
+      create_test: Create test
+      create_essay: Create essay
+      create_question: Create question
+      test_questions: Test questions
+      create_answer: Create Asnwer
+      question_answers: Question Answers
+    login_links:
+      header: Menu
+      tasks: Tasks
+      students: Students
+      students_page: Students page
+      create_student: Create student
+      exit: Exit
+      main_page: Main page
+      my_archive: My archive
+      login: Log in
+    set_theme:
+      light: Light
+      dark: Dark
+      system: System
+    turbo_confirm:
+      confirm: Are you sure?
+      cancel: Cancel
+      confirmation: confirm
+    user_menu:
+      back: back
+  user:
+    essays:
+      essay:
+        time_limit: Time limit
+        min_length: Minimum characters
+        start: Start
+    tasks:
+      task:
+        start_time: Start time
+        end_time: End Time
+        show: show
+      archive:
+        header: Archive
+        results: Results
+      index:
+        header: Tasks
+      show:
+        tests: Tests
+        essays: Essay
+    tests:
+      test:
+        time_limit: Time limit
+        start: Start
+  user_passed_essays:
+    show:
+      min_length: Minimum length
+      submit: Finish
+  user_passed_tests:
+    show:
+      count: Count
+      number: Number
+      submit: Next
+
+
+
+
 
 
 

@@ -15,6 +15,14 @@ ru:
       show:
         header: Ответ
         correct: Корректность
+
+      create:
+        create_answer: Ответ успешно создан
+      update:
+        update_answer: Ответ успешно обновлен
+      destroy:
+        destroy_answer: Ответ успешно удален
+
     essays:
       essay:
         title: Название
@@ -33,6 +41,15 @@ ru:
         title: Название
         description: Описание
         min_length: Минимальная длинна
+
+      create:
+        create_essay: Ответ успешно создан
+      update:
+        update_essay: Ответ успешно обновлен
+      destroy:
+        destroy_essay: Ответ успешно удален
+
+
     questions:
       form:
         submit: Создать
@@ -46,6 +63,16 @@ ru:
         header: Создать новый Вопрос
       show:
         answers: Ответы
+
+
+      create:
+        create_question: Вопрос успешно создан
+      update:
+        update_question: Вопрос успешно обновлен
+      destroy:
+        destroy_question: Вопрос успешно удален
+
+
     students:
       student:
         show: показать
@@ -60,6 +87,12 @@ ru:
       show:
         info: Информация о студенте
         results: результаты
+
+
+      destroy:
+        destroy_student: Студент успешно удален
+
+
     tasks:
       form:
         submit: Создать
@@ -98,7 +131,84 @@ ru:
         header: Создать новый Тест
       show:
         header: Тест
-        
+        title: Название
+  devise:
+    registrations:
+      edit:
+        header: Редактировать
+      new:
+        header: Создать нового Студента
+        submit: Создать
+    sessions:
+      new:
+        submit: Войти
+  shared:
+    admin_menu:
+      create_task: Создать таск
+      create_test: Создать тест
+      create_essay: Создать эссе
+      create_question: Создать вопрос
+      test_questions: Вопросы теста
+      create_answer: Создать ответ
+      question_answers: Ответы вопроса
+    login_links:
+      header: Меню
+      tasks: Задания
+      students: Студенты
+      students_page: Страница студента
+      create_student: Создать студента
+      exit: Выйти
+      main_page: Главная страницы
+      my_archive: Мой архив
+      login: Войти
+    set_theme:
+      light: Светлая
+      dark: Темная
+      system: Системная
+    turbo_confirm:
+      confirm: Вы уверены?
+      cancel: Отмена
+      confirmation: Подтвердить
+    user_menu:
+      back: Назад
+  user:
+    essays:
+      essay:
+        time_limit: Лимит времени
+        min_length: Минимум символов
+        start: Начать
+    tasks:
+      task:
+        start_time: Время начала
+        end_time: Время окончания
+        show: показать
+      archive:
+        header: Архив
+        results: Результаты
+      index:
+        header: Задания
+      show:
+        tests: Тесты
+        essays: Эссе
+    tests:
+      test:
+        time_limit: Лимит времени
+        start: Начать
+  user_passed_essays:
+    show:
+      min_length: Минимальный размер текста
+      submit: Завершить
+  user_passed_tests:
+    show:
+      count: Всего вопросов
+      number: вопрос
+      submit: Дальше
+
+
+
+
+
+
 
 
 

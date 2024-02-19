@@ -9,7 +9,7 @@ class Admin::StudentsController < Admin::BaseController
 
   def destroy
     @student.destroy
-    redirect_to admin_students_path, success: 'Студент успешно удален'
+    redirect_to admin_students_path, success: t('.destroy_student')
   end
 
   def result

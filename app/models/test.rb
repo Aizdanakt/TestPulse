@@ -12,8 +12,9 @@ class Test < ApplicationRecord
     task.end_time <= time && task.start_time >= time
   end
 
-  def attempts_over?
-    attempts.zero?
-  end
+  def attempts_over?(user)
+    user_passed_tests_count = user_passed_tests.where(user: user).count
 
+    (attempts - user_passed_tests_count) <= 0
+  end
 end

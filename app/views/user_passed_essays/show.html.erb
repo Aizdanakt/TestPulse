@@ -1,7 +1,6 @@
-<h1 class="text-success"><%=t(".header", title: @user_passed_essay.essay.title) %></h1>
-
 <p id="time-left"
-   data-time-left="<%= @user_passed_essay.time_left %>">
+   data-time-left="<%= @user_passed_essay.time_left %>"
+   class="mt-3">
 </p>
 
 <div class="mb-4">
@@ -9,7 +8,7 @@
     <strong oncopy="return false;"><%= @user_passed_essay.essay.description %></strong>
   </p>
   <p>
-    Минимальный размер текста: <strong><%= @user_passed_essay.essay.min_length %></strong>
+    <%= t('.min_length') %>: <strong><%= @user_passed_essay.essay.min_length %></strong>
   </p>
   <img src="<%= @user_passed_essay&.essay&.image_url %>" style="width: 50%; height: auto; image-rendering: auto;">
 </div>
@@ -17,10 +16,9 @@
 <%= form_with url: user_passed_essay_path(@user_passed_essay), local: false, method: :put, data: { turbo: false } do |form| %>
 
   <div class="mb-3" >
-    <%= form.label :answer, class: 'form-label' %>
-    <%= form.text_area :answer, rows: 6, id: 'essay_answer', class: 'form-control', oncopy: 'return false;', style:"border-color:#118098" %>
+    <%= form.text_area :answer, rows: 8, id: 'essay_answer', class: 'form-control', oncopy: 'return false;', style:"border-color:#118098" %>
   </div>
 
-  <%= form.submit 'Завершить', class: 'btn btn-success' %>
+  <%= form.submit t('.submit'), class: 'btn btn-success' %>
 
 <% end %>

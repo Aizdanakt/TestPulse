@@ -3,9 +3,9 @@ class CreateEssays < ActiveRecord::Migration[7.1]
     create_table :essays do |t|
       t.string :title, null: false
       t.string :description, null: false
-      t.integer :time_limit, default: 10
-      t.integer :attempts, default: 1
-      t.integer :min_length, default: 50
+      t.integer :time_limit, null: false, default: 10
+      t.integer :attempts, null: false, default: 1
+      t.integer :min_length, null: false, default: 50
       t.string :image_url
       t.references :task, null: false, foreign_key: true
 

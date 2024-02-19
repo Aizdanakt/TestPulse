@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    attributes:
+      answer:
+        body: Body
+        correct: correct
+      essay:
+        title: Title
+        description: Description
+        time_limit: Time limit
+        attempts: Attempts
+        min_length: minimum length
+        image_url: Image url
+      question:
+        body: Body
+      task:
+        title: Title
+        description: Description
+        group: Group
+        start_time: Start time
+        end_time: End time
+      test:
+        title: Title
+        time_limit: Time limit
+        attempts: Attempts
+        image_url: Image url
+    errors:
+      messages:
+        blank: can't be blank

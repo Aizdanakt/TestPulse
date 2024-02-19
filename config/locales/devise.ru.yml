@@ -4,6 +4,7 @@ ru:
       user:
         last_sign_in_at: Дата последнего входа
         last_sign_in_ip: IP последнего входа
+        name: Имя
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня

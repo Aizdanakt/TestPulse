@@ -1,9 +1,9 @@
 <dialog id="turbo-confirm">
   <form method="dialog">
-    <p>Are you sure?</p>
+    <p><%= t('.confirm') %></p>
     <div>
-      <button class="btn btn-secondary" value="cancel">Cancel</button>
-      <button class="btn btn-primary" value="confirm">Confirm</button>
+      <button class="btn btn-danger" value="cancel"><%= t('.cancel') %></button>
+      <button class="btn btn-primary" value="confirm"><%= t('.confirmation') %></button>
     </div>
   </form>
 </dialog>

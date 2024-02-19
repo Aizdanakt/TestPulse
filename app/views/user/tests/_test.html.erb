@@ -2,8 +2,8 @@
   <div class="card" style="border-color: #118098">
     <div class="card-body">
       <h5 class="card-title"><%= test.title %></h5>
-      <p class="card-text">Лимит времени: <%= test.time_limit %></p>
-      <%= button_to 'Старт',
+      <p class="card-text"><%= t('.time_limit') %>: <%= test.time_limit %></p>
+      <%= button_to t('.start'),
                     start_user_task_test_path(test.task, test),
                     class: 'btn text-white',
                     style: "background-color: #6610f2;" %>

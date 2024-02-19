@@ -1,0 +1,29 @@
+ru:
+  activerecord:
+    attributes:
+      answer:
+        body: Тело
+        correct: корректность
+      essay:
+        title: Название
+        description: Описание
+        time_limit: Лимит времени
+        attempts: Попытки
+        min_length: Минимальная длина
+        image_url: Ссылка на картинку
+      question:
+        body: Тело
+      task:
+        title: Название
+        description: Описание
+        group: Группа
+        start_time: Время начала
+        end_time: Время окончания
+      test:
+        title: Название
+        time_limit: Лимит времени
+        attempts: Попытки
+        image_url: Ссылка на картинку
+    errors:
+      messages:
+        blank: не может быть пустым
