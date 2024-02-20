@@ -1,13 +1,16 @@
 <tr>
   <td><%= student.name %></td>
   <td><%= student.group %></td>
-  <td><%= student.teacher_id %></td>
-  <td><%= link_to t('.show'),
+  <td>
+    <div class="btn-wrapper">
+      <%= link_to t('.show'),
                   admin_student_path(student),
                   class: 'btn text-white',
-                  style: "background-color: #6610f2;" %></td>
-  <td><%= link_to t('.delete'), admin_student_path(student),
+                  style: "background-color: #6610f2;" %>
+      <%= link_to t('.delete'), admin_student_path(student),
                   class: 'btn text-white',
                   style: "background-color: #6610f2;",
-                  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+                  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </div>
+  </td>
 </tr>

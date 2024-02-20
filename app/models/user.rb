@@ -31,10 +31,6 @@ class User < ApplicationRecord
     is_a?(Admin)
   end
 
-  def teacher?
-    is_a?(Teacher)
-  end
-
   def user_passed_test(test)
     user_passed_tests.order(id: :desc).find_by(test_id: test.id)
   end

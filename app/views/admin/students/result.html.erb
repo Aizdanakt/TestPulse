@@ -19,12 +19,12 @@
     </div>
   <% end %>
   <% @student.user_passed_essays_by_task(@task).each do |passed_essay| %>
-    <div class="border p-3 mb-3">
+    <div class="container border p-3 mb-3">
       <h5>
         <%= passed_essay.essay.title %>
       </h5>
       <p class="elapsed-time"><%= t('.time_essay') %>: <%= passed_essay.elapsed_time %> </p>
-      <ul>
+      <ul style="word-wrap: break-word;">
         <%= passed_essay.answer %>
       </ul>
     </div>

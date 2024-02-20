@@ -5,7 +5,7 @@
         <%= answer.body %>
       </p>
     </section>
-
+    <div class="btn-wrapper">
     <%= link_to t('.show'), admin_answer_path(answer),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;"%>
@@ -16,5 +16,6 @@
                 class: 'btn text-white',
                 style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </div>
   </div>
 </article>

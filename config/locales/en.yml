@@ -1,5 +1,6 @@
 en:
   hello: Hello world
+  percentage: Success rate
   admin:
     answers:
       answer:
@@ -118,6 +119,20 @@ en:
         header: Tasks
       show:
         header: Task
+
+
+      create:
+        create_task: The task was successfully created
+      update:
+        update_task: The task has been successfully updated
+      destroy:
+        destroy_task: The task was successfully deleted
+      make_public:
+        success: The assignment is now available to students
+      make_private:
+        success: Now the assignment is not available to students
+
+
     tests:
       form:
         submit: Create
@@ -134,6 +149,15 @@ en:
       show:
         header: Test
         title: Title
+
+      create:
+        create_test: The test was successfully created
+      update:
+        update_test: The test has been successfully updated
+      destroy:
+        destroy_test: The test was successfully deleted
+
+
   devise:
     registrations:
       edit:
@@ -145,7 +169,7 @@ en:
       new:
         submit: Log in
   shared:
-    admin_menu:
+    mobile_dropdown:
       create_task: Create task
       create_test: Create test
       create_essay: Create essay
@@ -166,7 +190,6 @@ en:
     set_theme:
       light: Light
       dark: Dark
-      system: System
     turbo_confirm:
       confirm: Are you sure?
       cancel: Cancel
@@ -179,6 +202,13 @@ en:
         time_limit: Time limit
         min_length: Minimum characters
         start: Start
+
+
+      start:
+        deadline_error: The deadline for completing the essay has expired
+        attempts_error: Your attempts are over
+
+
     tasks:
       task:
         start_time: Start time
@@ -196,15 +226,39 @@ en:
       test:
         time_limit: Time limit
         start: Start
+
+
+      start:
+        deadline_error: The deadline for completing the test has expired
+        attempts_error: Your attempts are over
+
+
+  application:
+    error_page: Page not found
+
+
   user_passed_essays:
     show:
       min_length: Minimum length
       submit: Finish
+
+
+    update:
+      error_completed: Something went wrong :(
+      success_save: Your essay has been saved
+      error_save: The response could not be saved
+
+
   user_passed_tests:
     show:
       count: Count
       number: Number
       submit: Next
+
+
+    update:
+      success_save: Your test is saved
+
 
 
 

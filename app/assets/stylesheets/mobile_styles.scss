@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  .btn-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-wrapper .btn {
+    margin: 5px;
+    width: calc(100% - 10px);
+  }
+  .nav-link {
+    padding: 5px 10px;
+  }
+  .navbar {
+    height: auto;
+  }
+}

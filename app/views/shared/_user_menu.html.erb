@@ -1,10 +1,6 @@
 <nav id="navbar-example2" class="navbar navbar-light" style="background-color: #6610f2;">
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills justify-content-around">
     <%= render 'shared/logo_role_link' %>
-
-    <li class="nav-item">
-      <a class="nav-link text-white" href='<%= request.referer || root_path %>'><%= t('.back') %></a>
-    </li>
 
   </ul>
   <ul class="nav ml-auto">

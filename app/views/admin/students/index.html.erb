@@ -5,11 +5,11 @@
     <tr>
       <th scope="col"><%= t('.name') %></th>
       <th class="sortable" scope="col"><%= t('.group') %></th>
-      <th scope="col"><%= t('.teacher_id') %></th>
+      <th> Action </th>
     </tr>
     </thead>
     <tbody>
-    <%= render partial: 'student', collection: @students %>
+      <%= render partial: 'student', collection: @students %>
     </tbody>
   </table>
 </div>

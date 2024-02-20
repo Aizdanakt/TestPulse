@@ -14,13 +14,13 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_task_tests_path(@test), success: 'Тест успешно удален'
+    redirect_to admin_task_tests_path(@test), success: t('.destroy_test')
   end
 
   def create
     @test = @task.tests.build(test_params)
     if @test.save
-      redirect_to admin_task_path(@task), success: 'Тест успешно создан'
+      redirect_to admin_task_path(@task), success: t('.create_test')
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_task_path(@test.task), success: 'Тест успешно обновлен'
+      redirect_to admin_task_path(@test.task), success: t('.update_test')
     else
       render :edit
     end

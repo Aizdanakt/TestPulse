@@ -1,5 +1,6 @@
 ru:
   hello: Привет, мир!
+  percentage: Успешность
   admin:
     answers:
       answer:
@@ -116,6 +117,20 @@ ru:
         header: Задания
       show:
         header: Задание
+
+
+      create:
+        create_task: Вопрос успешно создан
+      update:
+        update_task: Вопрос успешно обновлен
+      destroy:
+        destroy_task: Вопрос успешно удален
+      make_public:
+        success: Теперь задание доступно студентам
+      make_private:
+        success: Теперь задание недоступно студентам
+
+
     tests:
       form:
         submit: Создать
@@ -132,6 +147,16 @@ ru:
       show:
         header: Тест
         title: Название
+
+
+      create:
+        create_test: Тест успешно создан
+      update:
+        update_test: Тест успешно обновлен
+      destroy:
+        destroy_test: Тест успешно удален
+
+
   devise:
     registrations:
       edit:
@@ -143,7 +168,7 @@ ru:
       new:
         submit: Войти
   shared:
-    admin_menu:
+    mobile_dropdown:
       create_task: Создать таск
       create_test: Создать тест
       create_essay: Создать эссе
@@ -164,7 +189,6 @@ ru:
     set_theme:
       light: Светлая
       dark: Темная
-      system: Системная
     turbo_confirm:
       confirm: Вы уверены?
       cancel: Отмена
@@ -177,6 +201,13 @@ ru:
         time_limit: Лимит времени
         min_length: Минимум символов
         start: Начать
+
+
+      start:
+        deadline_error: Срок прохождения эссе истек
+        attempts_error: Ваши попытки закончились
+
+
     tasks:
       task:
         start_time: Время начала
@@ -194,15 +225,40 @@ ru:
       test:
         time_limit: Лимит времени
         start: Начать
+
+
+      start:
+        deadline_error: Срок прохождения теста истек
+        attempts_error: Ваши попытки закончились
+
+
+  application:
+    error_page: Страница не найдена
+
+
   user_passed_essays:
     show:
       min_length: Минимальный размер текста
       submit: Завершить
+
+
+    update:
+      error_completed: Что-то пошло не так :(
+      success_save: Ваше эссе сохранено
+      error_save: Не удалось сохранить ответ
+
+
   user_passed_tests:
     show:
       count: Всего вопросов
       number: вопрос
       submit: Дальше
+
+
+    update:
+      success_save: Ваш тест сохранен
+
+
 
 
 

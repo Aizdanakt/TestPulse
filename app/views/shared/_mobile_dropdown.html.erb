@@ -1,0 +1,28 @@
+<% case
+   when controller_name == 'tasks' && action_name == 'index' %>
+  <li class="nav-item ">
+    <a class="nav-link text-white " href='<%= new_admin_task_path %>'><%= t('.create_task') %></a>
+  </li>
+<% when controller_name == 'tasks' && action_name == 'show' %>
+  <li class="nav-item">
+    <a class="nav-link text-white" href='<%= new_admin_task_test_path(@task) %>'><%= t('.create_test') %></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href='<%= new_admin_task_essay_path(@task) %>'><%= t('.create_essay') %></a>
+  </li>
+<% when controller_name == 'tests' && action_name == 'show' %>
+  <li class="nav-item">
+    <a class="nav-link text-white" href='<%= new_admin_test_question_path(@test.id) %>'><%= t('.create_question') %></a>
+  </li>
+<% when controller_name == 'questions' && action_name == 'show' %>
+  <li class="nav-item">
+    <a class="nav-link text-white" href='<%= admin_test_path(id: @question.test_id) %>'><%= t('.test_questions') %></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white" href='<%= new_admin_question_answer_path(@question.id) %>'><%= t('.create_answer') %></a>
+  </li>
+<% when controller_name == 'answers' && action_name == 'show' %>
+  <li class="nav-item">
+    <a class="nav-link text-white" href='<%= admin_question_path(@answer.question_id) %>'><%= t('.question_answers') %></a>
+  </li>
+<% end %>

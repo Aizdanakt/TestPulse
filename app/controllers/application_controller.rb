@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def handle_routing_error
-    redirect_to root_url, alert: 'Page not found'
+    redirect_to root_url, alert: t('.error_page')
   end
 
   def set_locale

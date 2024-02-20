@@ -18,6 +18,7 @@
   <div class="mb-3" >
     <%= form.text_area :answer, rows: 8, id: 'essay_answer', class: 'form-control', oncopy: 'return false;', style:"border-color:#118098" %>
   </div>
+  <div id="char_count" class="text-muted"></div>
 
   <%= form.submit t('.submit'), class: 'btn btn-success' %>
 

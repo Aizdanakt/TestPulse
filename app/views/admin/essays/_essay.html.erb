@@ -9,7 +9,7 @@
       </p>
       <img src="<%= essay&.image_url %>" style="width: 20%; height: auto; image-rendering: auto;" class="mb-2">
     </section>
-
+    <div class="btn-wrapper">
     <%= link_to t('.show'), admin_essay_path(essay),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
@@ -20,5 +20,6 @@
                 class: 'btn text-white',
                 style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </div>
   </div>
 </article>

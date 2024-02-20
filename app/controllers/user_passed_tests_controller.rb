@@ -10,7 +10,7 @@ class UserPassedTestsController < ApplicationController
     if @user_passed_test.completed?
 
 
-      redirect_to user_task_path(@user_passed_test.test.task), success: 'Ваш тест сохранен'
+      redirect_to user_task_path(@user_passed_test.test.task), success: t('.success_save')
     else
       redirect_to user_passed_test_path(@user_passed_test)
     end
