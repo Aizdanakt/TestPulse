@@ -13,6 +13,7 @@
   <p>
     <%= t(".number") %>: <strong><%= @user_passed_test.question_number(@user_passed_test) %></strong>
   </p>
+  <img src="<%= @user_passed_test.current_question.image_url %>" class="rounded" />
 </div>
 
 <%= form_with url: user_passed_test_path(@user_passed_test), local: false, method: :put, data: {turbo: false} do |form| %>

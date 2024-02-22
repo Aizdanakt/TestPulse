@@ -2,12 +2,11 @@
   <article class="card mt-3" style="border-color: #118098">
     <div class="card-body">
       <p class="my-2">
-      <h4><%= @question.test.title %></h4>
-      </p>
+        <h4><%= @question.test.title %></h4>
 
       <p class="my-10">
-      <h5><%= @question.body %></h5>
-      </p>
+        <h5><%= @question.body %></h5>
+      <img src="<%= @question.image_url %>" class="rounded" />
     </div>
   </article>
 </div>

@@ -4,7 +4,6 @@ class CreateTests < ActiveRecord::Migration[7.1]
       t.string :title, null: false
       t.integer :time_limit, null: false, default: 10
       t.integer :attempts, null: false, default: 1
-      t.string :image_url
       t.references :task, null: false, foreign_key: true
 
       t.timestamps

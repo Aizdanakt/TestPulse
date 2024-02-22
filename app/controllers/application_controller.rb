@@ -1,13 +1,20 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+
   rescue_from ActiveRecord::RecordNotFound, with: :render404
   rescue_from ActionController::RoutingError, with: :handle_routing_error
   rescue_from NoMethodError, with: :render500
+
   add_flash_types :success, :error
 
   def after_sign_in_path_for(resource)
     admin_students_path
+  end
+
+
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path
   end
 
   protected

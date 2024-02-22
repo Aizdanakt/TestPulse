@@ -13,4 +13,15 @@ class Task < ApplicationRecord
     time.strftime('%d.%m %H:%M')
   end
 
+  def passed_or_not_started?
+    time = Time.current
+    end_time <= time || start_time >= time
+  end
+
+  def attempts_over?(user, association_name, attempts)
+    user_passed_count = association_name.where(user: user).count
+
+    (attempts - user_passed_count) <= 0
+  end
+
 end

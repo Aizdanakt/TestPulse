@@ -35,7 +35,7 @@ class Admin::QuestionsController < Admin::BaseController
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :image_url)
   end
 
   def find_test

@@ -10,7 +10,7 @@
   <p>
     <%= t('.min_length') %>: <strong><%= @user_passed_essay.essay.min_length %></strong>
   </p>
-  <img src="<%= @user_passed_essay&.essay&.image_url %>" style="width: 50%; height: auto; image-rendering: auto;">
+  <img src="<%= @user_passed_essay&.essay&.image_url %>" class="rounded">
 </div>
 
 <%= form_with url: user_passed_essay_path(@user_passed_essay), local: false, method: :put, data: { turbo: false } do |form| %>

@@ -11,10 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension 'plpgsql'
+
   create_table 'answers', force: :cascade do |t|
     t.string 'body', null: false
     t.boolean 'correct', default: false, null: false
-    t.integer 'question_id', null: false
+    t.bigint 'question_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['question_id'], name: 'index_answers_on_question_id'
@@ -27,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
     t.integer 'attempts', default: 1, null: false
     t.integer 'min_length', default: 50, null: false
     t.string 'image_url'
-    t.integer 'task_id', null: false
+    t.bigint 'task_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['task_id'], name: 'index_essays_on_task_id'
@@ -35,7 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
 
   create_table 'questions', force: :cascade do |t|
     t.string 'body', null: false
-    t.integer 'test_id', null: false
+    t.string 'image_url'
+    t.bigint 'test_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['test_id'], name: 'index_questions_on_test_id'
@@ -48,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
     t.string 'group', null: false
     t.datetime 'start_time', null: false
     t.datetime 'end_time', null: false
-    t.integer 'teacher_id', null: false
+    t.bigint 'teacher_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['teacher_id'], name: 'index_tasks_on_teacher_id'
@@ -58,8 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
     t.string 'title', null: false
     t.integer 'time_limit', default: 10, null: false
     t.integer 'attempts', default: 1, null: false
-    t.string 'image_url'
-    t.integer 'task_id', null: false
+    t.bigint 'task_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['task_id'], name: 'index_tests_on_task_id'
@@ -68,8 +71,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
   create_table 'user_passed_essays', force: :cascade do |t|
     t.string 'answer'
     t.boolean 'completed', default: false
-    t.integer 'user_id', null: false
-    t.integer 'essay_id', null: false
+    t.bigint 'user_id', null: false
+    t.bigint 'essay_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['essay_id'], name: 'index_user_passed_essays_on_essay_id'
@@ -78,11 +81,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_142803) do
 
   create_table 'user_passed_tests', force: :cascade do |t|
     t.integer 'correct_questions', default: 0
-    t.json 'answers_data', default: {}, null: false
+    t.jsonb 'answers_data', default: {}, null: false
     t.boolean 'completed', default: false, null: false
-    t.integer 'user_id', null: false
-    t.integer 'test_id', null: false
-    t.integer 'current_question_id'
+    t.bigint 'user_id', null: false
+    t.bigint 'test_id', null: false
+    t.bigint 'current_question_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['current_question_id'], name: 'index_user_passed_tests_on_current_question_id'

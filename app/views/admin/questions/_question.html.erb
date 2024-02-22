@@ -4,8 +4,9 @@
       <p class="my-2">
         <%= question.body %>
       </p>
+      <img src="<%= question.image_url %>" class="rounded" />
     </section>
-    <div class="btn-wrapper">
+    <div class="btn-wrapper mt-3">
     <%= link_to t('.show'), admin_question_path(question),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>

@@ -7,9 +7,6 @@
       <p class="my-2">
         <%= t('.number') %>: <%= test.questions.count %>
       </p>
-      <p>
-        <img src="<%= test.image_url %>">
-      </p>
     </section>
     <div class="btn-wrapper">
     <%= link_to t('.show'), admin_test_path(test),

@@ -1,6 +1,6 @@
 class User::TasksController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :extract_tasks, only: %i[index archive result show]
+  before_action :extract_tasks
 
   def index
     @end_time = Time.current
@@ -9,10 +9,13 @@ class User::TasksController < ApplicationController
   end
 
   def show
-    tasks_data = @all_tasks.where(public: true).where('end_time >= ?', Time.current).find(params[:id])
-
-    @tests = tasks_data.tests
-    @essays = tasks_data.essays
+    task = @all_tasks.where(public: true).where('end_time >= ?', Time.current).find(params[:id])
+    if task.passed_or_not_started?
+      redirect_to root_path
+    else
+      @tests = task.tests
+      @essays = task.essays
+    end
   end
 
   def archive
