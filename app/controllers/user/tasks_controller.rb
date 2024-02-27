@@ -1,5 +1,5 @@
 class User::TasksController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: :welcome_page
   before_action :extract_tasks
 
   def index
@@ -26,6 +26,8 @@ class User::TasksController < ApplicationController
   def result
     @task = @all_tasks.find(params[:id])
   end
+
+  def welcome_page; end
 
   private
 

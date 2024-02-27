@@ -4,6 +4,12 @@
       <img src="<%= asset_path('logo/logo.png') %>" alt="Logo" height="34" width="30">
     </a>
   </li>
+<% elsif current_user %>
+  <li class="nav-item d-flex align-items-center">
+    <a class="nav-link text-white" href="<%= user_tasks_path %>">
+      <img src="<%= asset_path('logo/logo.png') %>" alt="Logo" height="34" width="30">
+    </a>
+  </li>
 <% else %>
   <li class="nav-item d-flex align-items-center">
     <a class="nav-link text-white" href="<%= root_path %>">

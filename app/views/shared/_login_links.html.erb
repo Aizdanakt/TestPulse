@@ -8,10 +8,10 @@
         <% if current_user.admin? %>
         <li><%= link_to t('.tasks'), admin_tasks_path, class: 'dropdown-item' %></li>
         <li><%= link_to t('.students'), admin_students_path, class: 'dropdown-item' %></li>
-        <li><%= link_to t('.students_page'), '/', class: 'dropdown-item' %></li>
+        <li><%= link_to t('.students_page'), user_tasks_path, class: 'dropdown-item' %></li>
         <li><%= link_to t('.create_student'), new_user_registration_path, class: 'dropdown-item' %></li>
         <% else %>
-        <li><%= link_to t('.main_page'), '/', class: 'dropdown-item' %></li>
+        <li><%= link_to t('.main_page'), user_tasks_path, class: 'dropdown-item' %></li>
         <li><%= link_to t('.my_archive'), archive_user_tasks_path, class: 'dropdown-item' %></li>
         <% end %>
         <li><%= link_to t('.exit'), destroy_user_session_path,

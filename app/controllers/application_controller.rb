@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :error
 
   def after_sign_in_path_for(resource)
-    admin_students_path
+    if current_user.admin?
+      admin_students_path
+    else
+      user_tasks_path
+    end
   end
 
 
@@ -32,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = :ru
+    I18n.locale = :en
   end
 
   def configure_permitted_parameters

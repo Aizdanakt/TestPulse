@@ -25,3 +25,13 @@
     height: auto;
   }
 }
+
+.container img {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.container img:hover {
+  border-color: #6610f2;
+}
+

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
              path_names: { sign_in: :login, sign_out: :logout },
              :controllers => { :registrations => 'registrations'}
 
-  root 'user/tasks#index'
+  root 'user/tasks#welcome_page'
   get 'set_theme', to: 'theme#update'
 
   namespace :admin do
