@@ -53,3 +53,4 @@ app/assets/images/
 /config/credentials/production.key
 /config/locales/ky.yml
 /config/locales/devise.ky.yml
+config/database.yml

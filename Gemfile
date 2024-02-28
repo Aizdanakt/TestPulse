@@ -54,6 +54,13 @@ gem 'i18n', '~> 1.14', '>= 1.14.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
+  gem 'capistrano', '~> 3.18', require: false
+  gem 'capistrano-asdf'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'ed25519', '>= 1.2', '< 2.0', require: false
+
   gem 'debug', platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
   gem 'rubocop', require: false
 end
@@ -75,6 +82,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'importmap-rails', '~> 2.0'
 gem 'bootstrap', '~> 5.0.2'
 gem 'hotwire-rails', '~> 0.1.3'
+gem 'importmap-rails', '~> 2.0'
