@@ -1,10 +1,9 @@
 <div class="dropdown">
   <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-    🌓 <%= cookies[:theme] %>
+    🌓 <%= cookies[:theme].nil? ? '' : t('.' + cookies[:theme]).to_s %>
   </button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-    <li><%= link_to 'light', set_theme_path(theme: 'light'), class: 'theme-link dropdown-item' %></li>
-    <li><%= link_to 'dark', set_theme_path(theme: 'dark'), class: 'theme-link dropdown-item' %></li>
-    <li><%= link_to 'system default', set_theme_path, class: 'theme-link dropdown-item' %></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><%= link_to t('.light'), set_theme_path(theme: 'light'), class: 'theme-link dropdown-item' %></li>
+    <li><%= link_to t('.dark'), set_theme_path(theme: 'dark'), class: 'theme-link dropdown-item' %></li>
   </ul>
 </div>

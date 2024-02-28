@@ -1,15 +1,15 @@
 <div class="container mt-3">
   <input type="text" id="searchInput" class="form-control" placeholder="Search by group..." aria-label="Search">
-  <table class="table table-striped", id="student-table">
+  <table class="table table-striped" id="student-table">
     <thead>
     <tr>
-      <th scope="col">Имя</th>
-      <th class="sortable" scope="col ">Группа</th>
-      <th scope="col">ID учителя</th>
+      <th scope="col"><%= t('.name') %></th>
+      <th class="sortable" scope="col"><%= t('.group') %></th>
+      <th> 💡 </th>
     </tr>
     </thead>
     <tbody>
-    <%= render partial: 'student', collection: @students %>
+      <%= render partial: 'student', collection: @students %>
     </tbody>
   </table>
 </div>

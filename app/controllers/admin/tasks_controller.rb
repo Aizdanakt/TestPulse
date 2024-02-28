@@ -19,13 +19,13 @@ class Admin::TasksController < Admin::BaseController
 
   def destroy
     @task.destroy
-    redirect_to admin_tasks_path, success: 'Задание успешно удалено'
+    redirect_to admin_tasks_path, success: t('.destroy_task')
   end
 
   def create
     @task = current_user.created_tasks.build(task_params)
     if @task.save
-      redirect_to admin_tasks_path, success: 'Задание успешно создано'
+      redirect_to admin_tasks_path, success: t('.create_task')
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::TasksController < Admin::BaseController
 
   def update
     if @task.update(task_params)
-      redirect_to admin_tasks_path(@task), success: 'Задание успешно обновлено'
+      redirect_to admin_tasks_path(@task), success: t('.update_task')
     else
       render :edit
     end
@@ -41,12 +41,12 @@ class Admin::TasksController < Admin::BaseController
 
   def make_public
     @task.update(public: true)
-    redirect_to admin_tasks_path, notice: 'Теперь задание доступно студентам'
+    redirect_to admin_tasks_path, notice: t('.success')
   end
 
   def make_private
     @task.update(public: false)
-    redirect_to admin_tasks_path, notice: 'Теперь задание недоступно студентам'
+    redirect_to admin_tasks_path, notice: t('.success')
   end
 
   def archive

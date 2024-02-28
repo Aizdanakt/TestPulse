@@ -1,0 +1,37 @@
+@media (max-width: 768px) {
+  .btn-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-wrapper .btn {
+    margin: 5px;
+    width: calc(100% - 10px);
+  }
+  .nav-link {
+    padding: 5px 10px;
+  }
+  .navbar {
+    height: auto;
+  }
+  .rounded {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media (min-width: 769px) {
+  .rounded {
+    max-width: 700px;
+    height: auto;
+  }
+}
+
+.container img {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.container img:hover {
+  border-color: #6610f2;
+}
+

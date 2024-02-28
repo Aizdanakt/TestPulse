@@ -1,53 +1,27 @@
 <nav id="navbar-example2" class="navbar navbar-light" style="background-color: #6610f2;">
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills  align-items-center">
     <%= render 'shared/logo_role_link' %>
-    <li class="nav-item">
-      <span class="nav-link text-white">|</span>
-    </li>
 
-    <% case
-       when controller_name == 'tasks' && action_name == 'index' %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= new_admin_task_path %>'>Создать таск</a>
-      </li>
-
-    <% when controller_name == 'tasks' && action_name == 'show' %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= new_admin_task_test_path(@task) %>'>Создать тест</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= new_admin_task_essay_path(@task) %>'>Создать эссе</a>
-      </li>
-
-    <% when controller_name == 'tests' && action_name == 'show' %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= new_admin_test_question_path(@test) %>'>Создать вопрос</a>
-      </li>
-
-    <% when controller_name == 'questions' && action_name == 'show' %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= admin_test_path(id: @question.test_id) %>'>Вопросы теста</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= new_admin_question_answer_path(@question.id) %>'>Создать ответ</a>
-      </li>
-
-    <% when controller_name == 'answers' && action_name == 'show' %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href='<%= admin_question_path(@answer.question_id) %>'>Ответы вопроса</a>
-      </li>
+    <% if request.user_agent =~ /iPhone|Android/ %>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Еще
+        </button>
+        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton">
+          <%= render 'shared/mobile_dropdown' %>
+        </ul>
+      </div>
+    <% else %>
+      <%= render 'shared/mobile_dropdown' %>
     <% end %>
   </ul>
-  <ul class="nav ml-auto">
-    <li class="nav-item">
-      <%= render 'shared/set_theme' %>
-    </li>
+    <ul class="nav nav-pills  align-items-center">
+        <li class="nav-item">
+            <%= render 'shared/set_theme' %>
+        </li>
 
-    <li class="nav-item">
-      <%= render 'shared/login_links' %>
-    </li>
-
-  </ul>
+        <li class="nav-item">
+            <%= render 'shared/login_links' %>
+        </li>
+    </ul>
 </nav>

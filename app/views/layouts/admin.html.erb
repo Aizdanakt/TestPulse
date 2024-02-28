@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-bs-theme="<%= cookies[:theme] %>">
+<html data-bs-theme="<%= cookies[:theme] %>">
   <head>
     <title>TestPulse</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,7 +12,7 @@
 
   <body>
     <%= render 'shared/admin_menu' %>
-    <main class="container">
+    <main class="container mt-3">
       <div class="container">
         <%= display_flash_messages %>
       </div>
@@ -21,5 +21,6 @@
 
       <%= render 'shared/turbo_confirm' %>
     </main>
+    <%= render 'shared/footer' %>
   </body>
 </html>

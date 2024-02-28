@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Информация о студенте <%= @student.name %></h1>
+  <h3><%= t('.info') %> <%= @student.name %></h3>
   <% @student.user_uniq_tasks.each do |task| %>
-    <article class="card mt-3 form-control-sm" style="border-color: #8e00ba">
+    <article class="card mt-3 form-control-sm" style="border-color: #118098">
       <div class="card-body">
         <section>
           <p class="my-2">
@@ -9,7 +9,7 @@
           </p>
         </section>
 
-        <%= link_to 'Результаты', task_result_admin_student_path(@student, task), class: 'btn btn-primary' %>
+        <%= link_to t('.results'), task_result_admin_student_path(@student, task), class: 'btn btn-primary' %>
       </div>
     </article>
   <% end %>

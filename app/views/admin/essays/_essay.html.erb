@@ -2,23 +2,24 @@
   <div class="card-body">
     <section>
       <p class="my-2">
-        Title: <%= essay.title %>
+        <%= t('.title') %>: <%= essay.title %>
       </p>
       <p class="my-2">
-        Description: <%= essay.description %>
+        <%= t('.description') %>: <%= essay.description %>
       </p>
       <img src="<%= essay&.image_url %>" style="width: 20%; height: auto; image-rendering: auto;" class="mb-2">
     </section>
-
-    <%= link_to 'Show', admin_essay_path(essay),
+    <div class="btn-wrapper">
+    <%= link_to t('.show'), admin_essay_path(essay),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
-    <%= link_to 'Update', edit_admin_essay_path(essay),
+    <%= link_to t('.edit'), edit_admin_essay_path(essay),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
-    <%= link_to "Delete", admin_essay_path(essay),
+    <%= link_to t('.delete'), admin_essay_path(essay),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    </div>
   </div>
 </article>

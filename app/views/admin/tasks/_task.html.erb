@@ -2,35 +2,35 @@
   <div class="card-body">
     <section>
       <p class="my-2">
-        Title: <%= task.title %>
+        <%= t('.title') %>: <%= task.title %>
       </p>
       <p class="my-2">
-        Group: <%= task.group %>
+        <%= t('.group') %>: <%= task.group %>
       </p>
       <p class="my-2">
-        Start time: <%= task.start_time %>
+        <%= t('.start_time') %>: <%= task.formatted_time(task.start_time) %>
       </p>
       <p class="my-2">
-        End time: <%= task.end_time %>
+        <%= t('.end_time') %>: <%= task.formatted_time(task.end_time) %>
       </p>
     </section>
-
-    <%= link_to 'Show', admin_task_path(task),
+    <div class="btn-wrapper">
+    <%= link_to t('.show'), admin_task_path(task),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
-    <%= link_to 'Update', edit_admin_task_path(task),
+    <%= link_to t('.edit'), edit_admin_task_path(task),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;" %>
-    <%= link_to "Delete", admin_task_path(task),
+    <%= link_to t('.delete'), admin_task_path(task),
                 class: 'btn text-white',
                 style: "background-color: #6610f2;",
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 
     <% if task.public %>
-      <%= link_to "Make Private", make_private_admin_task_path(task), class: 'btn btn-warning', data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+      <%= link_to t('.make_private'), make_private_admin_task_path(task), class: 'btn btn-warning', data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
     <% else %>
-      <%= link_to "Make Public", make_public_admin_task_path(task), class: 'btn btn-primary', data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
+      <%= link_to t('.make_public'), make_public_admin_task_path(task), class: 'btn btn-primary', data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } %>
     <% end %>
+    </div>
   </div>
 </article>
-

@@ -1,31 +1,306 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  hello: Hello world
+  percentage: Success rate
+  admin:
+    answers:
+      answer:
+        show: show
+        edit: edit
+        delete: delete
+      form:
+        submit: Create
+      edit:
+        header: Edit Answer
+      new:
+        header: Create New Answer
+      show:
+        header: Answer
+        correct: Correct
+
+
+      create:
+        create_answer: The answer was successfully created
+      update:
+        update_answer: The answer has been successfully updated
+      destroy:
+        destroy_answer: The answer was successfully deleted
+
+
+    essays:
+      essay:
+        title: Title
+        description: Description
+        show: show
+        edit: edit
+        delete: delete
+      form:
+        create: Create
+      edit:
+        header: Edit Essay
+      new:
+        header: Create New Essay
+      show:
+        header: Essay
+        title: Title
+        description: Description
+        min_length: Minimum length
+
+
+      create:
+        create_essay: The essay was successfully created
+      update:
+        update_essay: The essay has been successfully updated
+      destroy:
+        destroy_essay: The essay was successfully deleted
+
+
+    questions:
+      form:
+        submit: Create
+      question:
+        show: show
+        edit: edit
+        delete: delete
+      edit:
+        header: Edit Question
+      new:
+        header: Create New Question
+      show:
+        answers: Answers
+
+
+      create:
+        create_question: The question was successfully created
+      update:
+        update_question: The question has been successfully updated
+      destroy:
+        destroy_question: The question was successfully deleted
+
+
+    students:
+      student:
+        show: show
+        delete: delete
+      index:
+        name: Name
+        group: Group
+        teacher_id: ID Teacher
+      result:
+        time_test: Time spent on the test
+        time_essay: Time spent on the essay
+      show:
+        info: information about the student
+        results: results
+
+      destroy:
+        destroy_student: Студент успешно удален
+
+
+    tasks:
+      form:
+        submit: Create
+      task:
+        title: Title
+        group: Group
+        start_time: Start time
+        end_time: End Time
+        show: show
+        edit: edit
+        delete: delete
+        make_private: Make private
+        make_public: Make public
+      archive:
+        header: Archive
+      edit:
+        header: Edit Task
+      new:
+        header: Create New Task
+      index:
+        header: Tasks
+      show:
+        header: Task
+
+
+      create:
+        create_task: The task was successfully created
+      update:
+        update_task: The task has been successfully updated
+      destroy:
+        destroy_task: The task was successfully deleted
+      make_public:
+        success: The assignment is now available to students
+      make_private:
+        success: Now the assignment is not available to students
+
+
+    tests:
+      form:
+        submit: Create
+      test:
+        title: Title
+        number:  Number of questions
+        show: show
+        edit: edit
+        delete: delete
+      edit:
+        header: Edit Test
+      new:
+        header: Create New Test
+      show:
+        header: Test
+        title: Title
+
+      create:
+        create_test: The test was successfully created
+      update:
+        update_test: The test has been successfully updated
+      destroy:
+        destroy_test: The test was successfully deleted
+
+
+  devise:
+    registrations:
+      edit:
+        header: edit
+      new:
+        header: Create New User
+        submit: Create
+    sessions:
+      new:
+        submit: Log in
+  shared:
+    mobile_dropdown:
+      create_task: Create task
+      create_test: Create test
+      create_essay: Create essay
+      create_question: Create question
+      test_questions: Test questions
+      create_answer: Create Asnwer
+      question_answers: Question Answers
+    login_links:
+      header: Menu
+      tasks: Tasks
+      students: Students
+      students_page: Students page
+      create_student: Create student
+      exit: Exit
+      main_page: Main page
+      my_archive: My archive
+      login: Log in
+    set_theme:
+      light: Light
+      dark: Dark
+    turbo_confirm:
+      confirm: Are you sure?
+      cancel: Cancel
+      confirmation: confirm
+    user_menu:
+      back: back
+  user:
+    essays:
+      essay:
+        time_limit: Time limit
+        min_length: Minimum characters
+        start: Start
+
+
+      start:
+        deadline_error: The deadline for completing the essay has expired
+        attempts_error: Your attempts are over
+
+
+    tasks:
+      task:
+        start_time: Start time
+        end_time: End Time
+        show: show
+      archive:
+        header: Archive
+        results: Results
+      index:
+        header: Tasks
+      show:
+        tests: Tests
+        essays: Essay
+    tests:
+      test:
+        time_limit: Time limit
+        start: Start
+
+
+      start:
+        deadline_error: The deadline for completing the test has expired
+        attempts_error: Your attempts are over
+
+
+  application:
+    error_page: Page not found
+
+
+  user_passed_essays:
+    show:
+      min_length: Minimum length
+      submit: Finish
+
+
+    update:
+      error_completed: Something went wrong :(
+      success_save: Your essay has been saved
+      error_save: The response could not be saved
+
+
+  user_passed_tests:
+    show:
+      count: Count
+      number: Number
+      submit: Next
+
+
+    update:
+      success_save: Your test is saved
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

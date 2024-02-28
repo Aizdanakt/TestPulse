@@ -1,12 +1,9 @@
-<h1 class="mb-4">Test</h1>
 <div style="margin-bottom: 30px">
   <article class="card mt-3" style="border-color: #118098">
     <section>
+      <h3 class="mb-4"><%= t('.header') %></h3>
       <p class="my-10">
-        Title:  <%= @test.title %>
-      </p>
-      <p>
-        <img src="<%= @test.image_url %>">
+        <%= t('.title') %>:  <%= @test.title %>
       </p>
 
     </section>

@@ -16,13 +16,18 @@ class UserPassedTest < ApplicationRecord
     self.answers_data ||= {}
     self.answers_data[current_question.id] = answer_ids
     self.correct_questions += 1 if correct_answer?(answer_ids) && in_time?
+    self.completed = true if completed?
     save!
   end
 
   def success_percentage(user_passed_test)
     total_answers = user_passed_test.test.questions.count
     correct_answers = user_passed_test.correct_questions
-    ((correct_answers.to_f / total_answers) * 100).to_i
+    if total_answers.positive? && correct_answers.positive?
+      ((correct_answers.to_f / total_answers) * 100).to_i
+    else
+      0
+    end
   end
 
   def success?(percentage)

@@ -1,7 +1,7 @@
-<h3 class="mb-4">Archive</h3>
+<h3 class="mb-4"><%= t('.header') %></h3>
 <div style="margin-bottom: 30px">
   <% @tasks.each do |task| %>
-    <article class="card mt-3 form-control-lg" style="border-color: #8e00ba">
+    <article class="card mt-3 form-control-lg" style="border-color: #118098">
       <div class="card-body">
         <section>
           <p class="my-2">
@@ -9,7 +9,7 @@
           </p>
         </section>
 
-        <%= link_to 'Результаты', result_user_task_path(task), class: 'btn btn-primary' %>
+        <%= link_to t('.results'), result_user_task_path(task), class: 'btn btn-primary' %>
       </div>
     </article>
   <% end %>

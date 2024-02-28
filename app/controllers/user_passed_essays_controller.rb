@@ -5,12 +5,17 @@ class UserPassedEssaysController < ApplicationController
   def show; end
 
   def update
-    @user_passed_essay.update(answer: params[:answer])
-
-    if @user_passed_essay.save!
-      redirect_to user_task_path(@user_passed_essay.essay.task)
+    if @user_passed_essay.completed
+      redirect_to user_task_path(@user_passed_essay.essay.task), error: t('.error_completed')
     else
-      redirect_to user_passed_essay_path(@user_passed_essay)
+
+      @user_passed_essay.update(answer: params[:answer], completed: true)
+
+      if @user_passed_essay.save!
+        redirect_to user_task_path(@user_passed_essay.essay.task), success: t('.success_save')
+      else
+        redirect_to user_passed_essay_path(@user_passed_essay), error: t('.error_save')
+      end
     end
   end
 

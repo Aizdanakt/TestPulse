@@ -9,7 +9,7 @@
 #   end
 
 User.create!(name: 'qwerty', password: 'qwerty', group: 123, teacher_id: 3)
-hans = User.create!(name: 'admin', password: 'adminadmin', type: 'Admin')
+hans = User.create!(name: 'admin', password: 'adminadmin', group: 123, type: 'Admin')
 
 end_time = Time.parse('2024-12-31 23:59:59')
 
