@@ -18,7 +18,7 @@ set :default_env, {
 }
 
 set :nvm_type, :user
-set :nvm_node, 'v16.19.0'
+set :nvm_node, 'v16.20.2'
 set :nvm_map_bins, %w[node npm yarn rake rails]
 
 # Default branch is :master
