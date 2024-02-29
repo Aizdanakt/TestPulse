@@ -13,11 +13,7 @@ append :linked_files, 'config/database.yml', 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 set :passenger_restart_with_touch, true
 
-set :default_env, {
-  'PATH' => '$PATH:/home/sashka/.nvm/versions/node/v16.20.2/bin/node'
-}
-
-set :nvm_type, :user
+set :nvm_type, :sashka
 set :nvm_node, 'v16.20.2'
 set :nvm_map_bins, %w[node npm yarn rake rails]
 
