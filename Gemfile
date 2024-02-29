@@ -57,6 +57,7 @@ group :development, :test do
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
   gem 'capistrano', '~> 3.18', require: false
   gem 'capistrano-asdf'
+  gem 'capistrano-nvm', '~> 0.0.7'
   gem 'capistrano-passenger'
   gem 'capistrano-rails', '~> 1.6', require: false
   gem 'ed25519', '>= 1.2', '< 2.0', require: false

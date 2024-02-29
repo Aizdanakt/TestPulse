@@ -17,6 +17,10 @@ set :default_env, {
   'PATH' => '$PATH:/home/sashka/.nvm/versions/node/v16.20.2/bin/node'
 }
 
+set :nvm_type, :user
+set :nvm_node, 'v16.19.0'
+set :nvm_map_bins, %w[node npm yarn rake rails]
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
