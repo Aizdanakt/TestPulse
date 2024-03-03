@@ -4,7 +4,7 @@ lock '~> 3.18.0'
 set :application, 'TestPulse'
 set :repo_url, 'git@github.com:Aizdanakt/TestPulse.git'
 
-set :deploy_to, "/home/sashka/#{fetch :application}"
+set :deploy_to, "/home/deploy/#{fetch :application}"
 set :branch, 'develop'
 
 set :keep_releases, 3
