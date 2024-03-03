@@ -15,6 +15,7 @@ gem 'pg'
 gem 'puma', '>= 5.0'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'execjs'
 gem 'jsbundling-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
